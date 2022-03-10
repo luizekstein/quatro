@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="./css/Images/ico_maze.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/nav_&_footer.css">
+  <link rel="stylesheet" href="./css/cadastro.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar</title>
+  <script src="./js/funcoes.js"></script>
+</head>
+
+<body>
+    <nav role="navigation" class="nav">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="./index.html" class="nav-link"><span>Inicio</span></a>
+            </li> 
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link"><span>Produtos</span></a>
+                <nav class="submenu">
+                    <ul class="submenu-items">
+                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 1</a></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 2</a></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 3</a></li>
+                    </ul>
+                </nav>
+            </li> 
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link"><span><img id="img_nav" src="./css/imgs/logo/quatro_white.png" alt=""></span></a>
+                <nav class="submenu">
+                    <ul class="submenu-items">
+                        <li class="submenu-item"><a href="#" class="submenu-link">Sobre</a></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Contato</a></li>
+                        <li class="submenu-item"><hr class="submenu-seperator" /></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Ajuda</a></li>
+                    </ul>
+                </nav>
+            </li>  
+            <li class="nav-item">
+                <a href="#" class="nav-link"><span>Login</span></a>
+            </li>
+              <li class="nav-item">
+                <a href="./cadastro.html" class="nav-link"><span>Cadastro</span></a>
+            </li>
+        </ul>
+    </nav>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<div id="form_login">
+    <h3>Cadastre-se</h3>
+    <label for="in_email">Email</label>
+    <input  maxlength="30" id="in_email" type="text" placeholder="Email">
+    <label for="in_nome">Nome</label>
+    <input maxlength="30" id="in_nome" type="text" placeholder="Nome Empresa">
+    <label for="in_cnpj">CNPJ</label>
+    <input maxlength="10" id="in_cnpj" placeholder="CNPJ">
+    <label for="in_senha">Senha</label>
+    <input maxlength="8" id="in_senha" type="password" placeholder="Senha">
+    <label for="in_senha_confirm">Confirme a senha</label>
+    <input maxlength="8" id="in_senha_confirm" type="password" placeholder="Confirme a senha">
+    <button style="color: black;" onclick="cadastrar()" id="bota_cad">Cadastrar</button>
+</div>
+<div id="div_aguardar" class="loading-div">
+    <img style="height: 30px;"
+      src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+  </div>
+  
+</body>
+
+</html>
+
+
+<script>
+  function limparFormulario() {
+    document.getElementById("form_login").reset();
+  }
+
+  function cadastrar() {
+    aguardar();
+
+    var nomeVar = in_nome.value;
+    var emailVar = in_email.value;
+    var cnpjVar = in_cnpj.value;
+    var senhaVar = in_senha.value;
+    var confirmacaoSenhaVar = in_senha_confirm.value;
+
+    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+    if (nomeVar == "" || emailVar == "" || cnpjVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+      window.alert("Preencha todos os campos para prosseguir!");
+      if (nomeVar == "") {
+        console.log('nome está em branco')
+      }
+      if (emailVar == "") {
+        console.log('email está em branco')
+      }
+
+      if (cnpjVar == "") {
+        console.log('cnpj está em branco');
+      }
+      if (senhaVar == "") {
+        console.log('senha está em branco')
+      }
+      if (confirmacaoSenhaVar == "") {
+        console.log('confirmacaoSenha está em branco')
+      }
+      finalizarAguardar();
+      return false;
+    }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+      window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+      finalizarAguardar();
+      return false;
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+      window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+      finalizarAguardar();
+      return false;
+    }
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nome: nomeVar,
+        cnpj: cnpjVar,
+        email: emailVar,
+        senha: senhaVar,
+      })
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        window.alert("Cadastro realizado com sucesso!");
+        window.location = "index.html";
+        limparFormulario();
+        finalizarAguardar();
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      finalizarAguardar();
+    });
+  }
+</script>

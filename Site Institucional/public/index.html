@@ -3,25 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nav_&_footer.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUATRO</title>
 </head>
 <body>
-    <div class="navbar">
-        <div class="container_nav">
-            <div class="logo_img">
-                <img src="./css/imgs/logo/quatro_white.png" alt="">
-            </div>
-            <li class="navbar_elements">
-                <p>Sobre nós</p>
-                <p>Lorem</p>
-                <p>Cadastro</p>
-                <p>|</p>
-                <p>Login</p>
+    <nav role="navigation" class="nav">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="#" class="nav-link"><span>Inicio</span></a>
+            </li> 
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link"><span>Produtos</span></a>
+                <nav class="submenu">
+                    <ul class="submenu-items">
+                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 1</a></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 2</a></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 3</a></li>
+                    </ul>
+                </nav>
+            </li> 
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link"><span><img id="img_nav" src="./css/imgs/logo/quatro_white.png" alt=""></span></a>
+                <nav class="submenu">
+                    <ul class="submenu-items">
+                        <li class="submenu-item"><a href="#" class="submenu-link">Sobre</a></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Contato</a></li>
+                        <li class="submenu-item"><hr class="submenu-seperator" /></li>
+                        <li class="submenu-item"><a href="#" class="submenu-link">Ajuda</a></li>
+                    </ul>
+                </nav>
+            </li>  
+            <li class="nav-item">
+                <a href="#" class="nav-link"><span>Login</span></a>
             </li>
-        </div>
-    </div>
+              <li class="nav-item">
+                <a href="./cadastro.html" class="nav-link"><span>Cadastro</span></a>
+            </li>
+        </ul>
+    </nav>
     <div class="div_main">
        <div class="container">
            <div class="text_button">
@@ -58,3 +79,30 @@
     </div>
 </body>
 </html>
+<script>
+    [].slice.call(document.querySelectorAll('.dropdown .nav-link')).forEach(function(el){
+    el.addEventListener('click', onClick, false);
+});
+
+function onClick(e){
+    e.preventDefault();
+    var el = this.parentNode;
+    el.classList.contains('show-submenu') ? hideSubMenu(el) : showSubMenu(el);
+}
+
+function showSubMenu(el){
+    el.classList.add('show-submenu');
+    document.addEventListener('click', function onDocClick(e){
+        e.preventDefault();
+        if(el.contains(e.target)){
+            return;
+        }
+        document.removeEventListener('click', onDocClick);
+        hideSubMenu(el);
+    });
+}
+
+function hideSubMenu(el){
+    el.classList.remove('show-submenu');
+}
+</script>
