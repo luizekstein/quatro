@@ -10,22 +10,9 @@
 </head>
 <body>
     <nav role="navigation" class="nav">
-        <ul class="nav-items">
-            <li class="nav-item">
-                <a href="#" class="nav-link"><span>Inicio</span></a>
-            </li> 
+        <div class="container">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><span>Produtos</span></a>
-                <nav class="submenu">
-                    <ul class="submenu-items">
-                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 1</a></li>
-                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 2</a></li>
-                        <li class="submenu-item"><a href="#" class="submenu-link">Plano 3</a></li>
-                    </ul>
-                </nav>
-            </li> 
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><span><img id="img_nav" src="./css/imgs/logo/quatro_white.png" alt=""></span></a>
+                <a href="#" id="logo" class="nav-link"><h3>QUATRO</h3></a>
                 <nav class="submenu">
                     <ul class="submenu-items">
                         <li class="submenu-item"><a href="#" class="submenu-link">Sobre</a></li>
@@ -36,12 +23,13 @@
                 </nav>
             </li>  
             <li class="nav-item">
-                <a href="#" class="nav-link"><span>Login</span></a>
+                <a href="./cadastro.html" class="nav-link"><span>Login</span></a>
             </li>
-              <li class="nav-item">
+            <li class="nav-item">
                 <a href="./cadastro.html" class="nav-link"><span>Cadastro</span></a>
             </li>
         </ul>
+    </div>
     </nav>
     <div class="div_main">
        <div class="container">
@@ -50,7 +38,7 @@
              <h1>Servidores Lorem</h1>
                </div>
             <div class="second_text">
-                <h2>Conheça!</h2>
+               <a href="./plans.html"> <h2>Conheça!</h2></a>
             </div>
                 
             </div>
@@ -70,13 +58,105 @@
             </div>
         </div>
     </div>
-    <div class="div_white">
-        <div class="container">
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
+    <div  class="plans">
+        <div class="container_plans">
+            <div class="card">
+                <div class="vetor">
+                    <div class="vetor_container">
+                    <img src="./css/imgs/icons/startup.png" alt="">
+                   </div>
+            </div>
+            <div class="vetor check">
+                <div class="vetor_container text_part">
+                <div class="text">
+                  <p>Análise de ultimos picos</p>
+                </div>
+                
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <div class="vetor">
+                    <div class="vetor_container">
+                    <img src="./css/imgs/icons/enterprise.png" alt="">
+                    <div class="text">
+                       </div>
+                </div>
+            </div>
+            <div class="vetor check">
+                <div class="vetor_container text_part">
+         
+                <div class="text">
+                  <p>Relatórios em tempo real</p>
+                </div>
+                
+            </div>
+        </div>
+            </div>
+            <div class="card">
+                <div class="vetor">
+                    <div class="vetor_container">
+                    <img src="./css/imgs/icons/home.png" alt="">
+                    <div class="text">
+
+                    </div>
+                </div>
+            </div>
+            <div class="vetor check">
+                <div class="vetor_container text_part">
+          
+                <div class="text">
+                  <p>Análise de ultimos picos</p>
+                </div>
+                
+            </div>
+        </div>
+            </div>
+            
         </div>
     </div>
+    </div>
+     
+<div class="footer">
+    <div class="inner-footer">
+  
+  <!--  for company name and description -->
+      <div class="footer-items">
+        <h1>QUATRO</h1>
+        <p>Monitoramento de servidores</p>
+      </div>
+  
+  <!--  for quick links  -->
+      <div class="footer-items">
+        <h3>Links rápidos</h3>
+        <div class="border1"></div> <!--for the underline -->
+          <ul>
+            <a href="./index.html"><li>Início</li></a>
+            <a href="./planos.html"><li>Planos</li></a>
+            <a href="#"><li>Contato</li></a>
+            <a href="#"><li>Sobre nós</li></a>
+          </ul>
+      </div>
+  
+
+  <!--  for contact us info -->
+      <div class="footer-items">
+        <h3>Fale conosco</h3>
+        <div class="border1"></div>
+          <ul>
+            <li><i class="fa fa-map-marker" aria-hidden="true"></i>XYZ, abc</li>
+            <li><i class="fa fa-phone" aria-hidden="true"></i>123456789</li>
+            <li><i class="fa fa-envelope" aria-hidden="true"></i>quatro@company.com.br</li>
+          </ul> 
+        
+          <div class="social-media">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-google-plus-square"></i></a>
+          </div> 
+      </div>
+    </div>
+   
 </body>
 </html>
 <script>
@@ -105,4 +185,5 @@ function showSubMenu(el){
 function hideSubMenu(el){
     el.classList.remove('show-submenu');
 }
+
 </script>
