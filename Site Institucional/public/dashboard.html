@@ -2,30 +2,55 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/dashboard.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-
-    <link rel="stylesheet" href="./css/style.css"/>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
+
+  
+ <div class="general">
+   <div class="adjust">
+<div class="numeros">
       <div class="container">
-        <h1>Monitoramento do Servidor</h1>
+        <div class="dados">
+          <h2 style="color: white;">Pico Semanal</h2>
+          <h1 style="color: white;">5000</h1>
+        </div>
+        <div class="especifico">
+        <div class="complement">
+          <h3 style="color: white;">Hoje</h3>
+          <h2 style="color: white;">400</h2>
+        </div>
+   
+        <div class="complement">
+          <h3 style="color: white;">Estado</h3>
+          <h2 style="color: white;">Estável</h2>
+        </div>
       </div>
-      <div>
-        <button>Diário</button>
-        <button>Semanal</button>
-        <button>Mensal</button>
       </div>
+    </div>
+  
     <div class="dash">
-      <h1>Procesador</h1>
       <div class="graph">
         <canvas id="myChartLine"></canvas>
       </div>
+    </div> 
+    <div class="alerts">
+      <div class="aviso">
+        <h3 style="margin: 0;">Possível pico hoje</h3>
+        <h2  style="margin: 4%;">18:00</h2>
+      </div>
+      <div class="aviso">
+        <h3 style="margin: 0;">Número máximo</h3>
+        <h2 style="margin: 4%;">10.000</h2>
+      </div>
     </div>
-    <div class="dash">
+    
+  </div>
+    <!-- <div class="dash">
       <h1>RAM</h1>
       <div class="graph">
         <canvas id="myChartLine2"></canvas>
@@ -35,11 +60,30 @@
       <h1>Disco</h1>
       <div class="graph">
         <canvas id="myChartLine3"></canvas>
-      </div>
+      </div> -->
+<div class="options">
+  <h1 style="color: white;">Opções</h1>
+  <div class="card">
+    <h2>Semanal</h1>
+    <img src="./css/imgs/icons/semanal.png" alt="">
+  </div>
+  <div class="card">
+    <h2>Mensal</h1>
+    <img src="./css/imgs/icons/mensal.png" alt="">
+  </div>
+  <div class="card">
+    <h2>Anual</h1>
+    <img src="./css/imgs/icons/anual.png" alt="">
+  </div>
+  <div class="card">
+    <h2>Tempo real</h1>
+    <img src="./css/imgs/icons/real_time.png" alt="">
+  </div>
+
+</div>
     </div>
-    <div>
-      <button>Relatórios</button>
-    </div>
+</div>
+ 
   </body>
 </html>
 <script>
