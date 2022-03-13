@@ -31,6 +31,8 @@
     <input id="in_nome" type="text" name="name" placeholder="Nome da empresa">
 
     <!-- Cnpj -->
+    <label for="in_email">Email</label>
+    <input maxlength="30" id="in_email" type="text" placeholder="Email">
     <label for="in_cnpj">CNPJ</label>
     <input maxlength="14" id="in_cnpj" onkeypress="return onlyNumber();" placeholder="CNPJ">
 
@@ -48,6 +50,11 @@
   </div>
 
   <!-- Carregando login -->
+  <div id="div_aguardar" class="loading-div">
+    <input maxlength="8" id="in_senha_confirm" type="password" placeholder="Confirme a senha">
+    <button style="color: black; margin-bottom: 7%;" onclick="cadastrar()" id="bota_cad">Cadastrar</button>
+    <a style="margin-left: 30%;" href="./index.html">Voltar ao inicio</a>
+  </div>
   <div id="div_aguardar" class="loading-div">
     <img style="height: 30px;"
       src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
