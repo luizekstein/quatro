@@ -1,53 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
+:root {
     /* Colors light */
     --pink-main: #FD60AF;
     --purple-dark: #554DD4;
     --purple-light: #A45EE3;
 
-     /* Colors dark */
-     --yellow-main: #FABB28;
-     --black-light: #211E1F;
-     --black-main: #0C0C0C;
-     
-     /* Sombra */
+    /* Colors dark */
+    --yellow-main: #FABB28;
+    --black-light: #211E1F;
+    --black-main: #0C0C0C;
 
-     /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37); */
+    /* Sombra */
 
-  }
-  body{
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37); */
+
+}
+
+body {
     background: linear-gradient(1deg, #554DD4 0%, #A45EE3 27%, #FD60AF 75%);
 }
-*{
+
+* {
     color: white;
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
     font-family: poppins;
-    
+
 }
-p{
+
+p {
     font-family: poppins, medium;
 }
-a{
+
+a {
     text-decoration: none;
     color: var(--purple-dark);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.plans{
+.plans {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 94vh;
-    
+
 }
-.container_plans{
+
+.container_plans {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -55,7 +62,8 @@ a{
     width: 80%;
     border-radius: 5px;
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: column;
     height: 60%;
@@ -64,19 +72,22 @@ a{
     background-color: var(--purple-dark);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
 }
-.vetor{
+
+.vetor {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 38%;
-    border-radius: 5px 5px 0px 0px ;
+    border-radius: 5px 5px 0px 0px;
     border-bottom: 2px solid white;
 }
-.vetor img{
+
+.vetor img {
     height: 60px;
 }
-.vetor_container{
+
+.vetor_container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -84,9 +95,11 @@ a{
     height: 100%;
 
 }
-.month{
+
+.month {
     font-size: 9px;
 }
-.check img{
+
+.check img {
     height: 20px;
 }

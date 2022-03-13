@@ -1,125 +1,135 @@
-
 /* Fonte */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-:root{
+:root {
     /* Colors light */
     --pink-main: #FD60AF;
     --purple-dark: #554DD4;
     --purple-light: #A45EE3;
 
-     /* Colors dark */
-     --yellow-main: #FABB28;
-     --black-light: #211E1F;
-     --black-main: #0C0C0C;
-     
-     /* Sombra */
-/*
+    /* Colors dark */
+    --yellow-main: #FABB28;
+    --black-light: #211E1F;
+    --black-main: #0C0C0C;
+
+    /* Sombra */
+    /*
      --shadow: box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
 */
-  }
-*{
+}
+
+* {
     padding: 0;
     margin: 0;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
 
-body{
+body {
     background-color: var(--black-light);
     font-family: 'Spartan', sans-serif;
     color: white;
-}      *,
+}
+
+*,
 *:before,
-*:after{
+*:after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.background{
+.background {
     width: 430px;
     height: 520px;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
 }
-.background .shape{
+
+.background .shape {
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
 }
-.shape:first-child{
-    background: linear-gradient(
-        var(--purple-dark),
-        var(--purple-light)
-    );
+
+.shape:first-child {
+    background: linear-gradient(var(--pink-main),
+            var(--purple-light));
     left: -120px;
     top: -60px;
 }
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        var(--purple-light),
-        var(--purple-dark)
-    );
+
+.shape:last-child {
+    background: linear-gradient(to right,
+            var(--purple-light),
+            var(--pink-main));
     right: -100px;
     bottom: -40px;
 }
-#form_login{
-        height: 90vh;
+
+
+
+#form_login {
+    height: 90vh;
     width: 400px;
-    background-color: rgba(255,255,255,0.13);
+    background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 20px 35px;
 }
-#form_login *{
-    font-family: 'Poppins',sans-serif;
+
+#form_login * {
+    font-family: 'Poppins', sans-serif;
     color: white;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-#form_login  h3{
+
+#form_login h3 {
     font-size: 27px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-label{
+label {
     display: block;
     margin-top: 10px;
     font-size: 16px;
     font-weight: 500;
 }
-input{
+
+input {
     display: block;
     height: 42px;
     width: 100%;
-    background-color: rgba(255,255,255,0.07);
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 6px;
     font-size: 14px;
     font-weight: bold;
 }
-::placeholder{
+
+::placeholder {
     color: #e5e5e5;
 }
-button{
+
+button {
     margin-top: 20px;
     width: 100%;
     content: "Cadastrar";
@@ -137,5 +147,4 @@ button{
     /* border: 3px solid pink; */
     margin: auto;
     display: none;
-  }
-  
+}
