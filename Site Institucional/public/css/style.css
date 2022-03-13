@@ -21,6 +21,22 @@
     font-family: 'Clarika';
     src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
 }
+::-webkit-scrollbar {
+    background-color: #FD60AF;
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #A45EE3; 
+    border-radius: 10px;
+  }
+  
 h1{
     font-family: poppins, bold;
 }
