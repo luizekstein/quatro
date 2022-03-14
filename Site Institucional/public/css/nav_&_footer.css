@@ -34,8 +34,9 @@ li {
     list-style: none;
 }
 a {
+    font-family: 'Poppins';
     text-decoration: none;
-    color: #000;
+   
   }
   .container_nav{
       display: flex;
