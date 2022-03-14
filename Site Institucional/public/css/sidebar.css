@@ -34,9 +34,9 @@ body{
 body.dark{
     --body-color: #0C0C0C;
     --sidebar-color: #211E1F;
-    --primary-color: ##0C0C0C;
+    --primary-color: #FABB28;
     --primary-color-light: #211E1F;
-    --toggle-color: #FABB28;
+    --toggle-color: #0C0C0C;
     --text-color: #FABB28;
 }
 
@@ -152,7 +152,7 @@ header .image-text .profession{
 }
 
 body.dark .sidebar header .toggle{
-    color: var(--text-color);
+    color: var(--primary-color-color);
 }
 
 .sidebar.close .toggle{
