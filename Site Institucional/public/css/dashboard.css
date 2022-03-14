@@ -22,26 +22,14 @@
     src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
 }
 body{
-    height: 100vh;
+   
     background: linear-gradient(5deg, #554DD4 0%, #A45EE3 20%, #FD60AF 65%);
 }
-::-webkit-scrollbar {
-    background-color: #FD60AF;
-    width: 8px;
-  }
+
   h1, h2, h3{
       font-family: 'Poppins';
   }
-  /* Track */
-  ::-webkit-scrollbar-track {
-    border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #A45EE3; 
-    border-radius: 10px;
-  }
+
   .numeros{
       display: flex;
      

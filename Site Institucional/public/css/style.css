@@ -6,16 +6,17 @@
     --pink-main: #FD60AF;
     --purple-dark: #554DD4;
     --purple-light: #A45EE3;
-
-    /* Colors dark */
-    --yellow-main: #FABB28;
-    --black-light: #211E1F;
-    --black-main: #0C0C0C;
-
-    /* Sombra */
+    --font-color: white;
 
     --shadow: box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
 
+}
+
+.dark_mode:root{
+    --pink-main: #FABB28;
+    --purple-dark: #211E1F;
+    --purple-light: #0C0C0C;
+    --font-color: black;
 }
 
 @font-face {
@@ -24,9 +25,67 @@
 }
 
 ::-webkit-scrollbar {
-    background-color: #FD60AF;
+    background-color: var(--pink-main);
     width: 8px;
 }
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 16px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+      bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -35,7 +94,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #A45EE3;
+    background: var(--purple-dark);
     border-radius: 10px;
 }
 
@@ -58,7 +117,7 @@ a {
 }
 
 body {
-    background: linear-gradient(5deg, #554DD4 0%, #A45EE3 20%, #FD60AF 65%);
+    background: linear-gradient(5deg, var(--purple-light) 0%, var(--purple-dark) 20%, var(--pink-main) 65%);
 }
 
 /* Primeira div */

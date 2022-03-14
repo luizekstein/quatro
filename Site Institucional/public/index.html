@@ -11,33 +11,32 @@
 </head>
 
 <body>
-    <nav role="navigation" class="nav">
-        <div class="container">
-            <li class="nav-item dropdown">
-                <a href="#" id="logo" class="nav-link">
-                    <h3>QUATRO</h3>
-                </a>
-                <nav class="submenu">
-                    <ul class="submenu-items">
-                        <li class="submenu-item"><a href="#" class="submenu-link">Sobre</a></li>
-                        <li class="submenu-item"><a href="#" class="submenu-link">Contato</a></li>
-                        <li class="submenu-item">
-                            <hr class="submenu-seperator" />
-                        </li>
-                        <li class="submenu-item"><a href="#" class="submenu-link">Ajuda</a></li>
-                        <li class="submenu-item"><a href="./dashboard.html" class="submenu-link">Dashboard</a></li>
-                    </ul>
-                </nav>
+    <div class="container_nav">
+    <header class="site-header">
+        <div class="site-identity">
+          <h1 style="margin-left: 30%;  color: white;"><a style="color: white;">Quatro</a></h1>
+        </div>  
+        <nav style="margin-right: 5%;"class="site-navigation">
+          <ul class="nav">
+            <li><a href="#">Sobre nós</a></li> 
+            <li><a href="#">Contato</a></li> 
+            <li><a href="./dashboard.html">Dashboard</a></li> 
+            <li><a href="./cadastro.html">Cadastro</a></li> 
+            <li><a href="./login.html">Login</a></li>
+            
+            <li>
+                <label class="switch">
+                <input type="checkbox" id="switch" checked>
+                <span class="slider round"></span>
+              </label>
+             <a>Modo escuro</a> 
             </li>
-            <li class="nav-item">
-                <a href="./cadastro.html" class="nav-link"><span>Login</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="./cadastro.html" class="nav-link"><span>Cadastro</span></a>
-            </li>
-            </ul>
-        </div>
-    </nav>
+          
+     
+          </ul>
+        </nav>
+      </header>
+    </div>
     <div class="div_main">
         <div class="container">
             <div class="text_button">
@@ -51,15 +50,15 @@
                 </div>
 
             </div>
-            <div class="div_vetor">
-                <img src="./css/imgs/vetores/vetor_user_light.png" alt="">
+            <div  class="div_vetor">
+                <img id="vetor_main" src="./css/imgs/vetores/vetor_user_light.png" alt="">
             </div>
         </div>
     </div>
     <div class="div_white">
         <div class="container">
             <div class="div_vetor">
-                <img src="./css/imgs/vetores/light second.png" alt="">
+                <img id="vetor_secondary" src="./css/imgs/vetores/light second.png" alt="">
             </div>
             <div class="how_works">
                 <h1>Como isso funciona?</h1>
@@ -131,17 +130,15 @@
     <div class="footer">
         <div class="inner-footer">
 
-            <!--  for company name and description -->
             <div class="footer-items">
                 <h1>QUATRO</h1>
                 <p>Monitoramento de servidores</p>
             </div>
 
-            <!--  for quick links  -->
             <div class="footer-items">
                 <h3>Links rápidos</h3>
                 <div class="border1"></div>
-                <!--for the underline -->
+
                 <ul>
                     <a href="./index.html">
                         <li>Início</li>
@@ -181,29 +178,13 @@
 
 </html>
 <script>
-    [].slice.call(document.querySelectorAll('.dropdown .nav-link')).forEach(function (el) {
-        el.addEventListener('click', onClick, false);
-    });
+const $html = document.querySelector('html')
+const $checkbox = document.querySelector ('#switch')
 
-    function onClick(e) {
-        e.preventDefault();
-        var el = this.parentNode;
-        el.classList.contains('show-submenu') ? hideSubMenu(el) : showSubMenu(el);
-    }
-
-    function showSubMenu(el) {
-        el.classList.add('show-submenu');
-        document.addEventListener('click', function onDocClick(e) {
-            e.preventDefault();
-            if (el.contains(e.target)) {
-                return;
-            }
-            document.removeEventListener('click', onDocClick);
-            hideSubMenu(el);
-        });
-    }
-
-    function hideSubMenu(el) {
-        el.classList.remove('show-submenu');
-    }
+$checkbox.addEventListener('change', function()
+{
+    
+    $html.classList.toggle('dark_mode')
+    
+})
 </script>
