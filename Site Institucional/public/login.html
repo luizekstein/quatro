@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/cadastro.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="css/nav_&_footer.css">
   <script src="./js/funcoes.js"></script>
-  <title>Cadastrar</title>
+  <title>Entrar</title>
 </head>
 
 <body>
@@ -18,15 +19,7 @@
   </div>
 
   <div id="form_login">
-    <h3>Cadastre-se</h3>
-
-    <!-- Nome da empresa -->
-    <label>Nome da empresa</label>
-    <input id="in_nome" type="text" name="name" placeholder="Nome da empresa">
-
-    <!-- Cnpj -->
-    <label for="in_email">Email</label>
-    <input maxlength="30" id="in_email" type="text" placeholder="Email">
+    <h3>Entrar</h3>
     <label for="in_cnpj">CNPJ</label>
     <input maxlength="14" id="in_cnpj" onkeypress="return onlyNumber();" placeholder="CNPJ">
 
@@ -34,12 +27,9 @@
     <label for="in_senha">Senha</label>
     <input maxlength="8" id="in_senha" type="password" placeholder="**********">
 
-    <!-- Confirmar a senha -->
-    <label for="in_senha_confirm">Confirme a senha</label>
-    <input maxlength="8" id="in_senha_confirm" type="password" placeholder="**********">
 
     <!-- BOTÃO de se cadastrar -->
-    <button style="color: black;" onclick="cadastrar()" id="bota_cad">Cadastrar</button>
+    <button style="color: black;" onclick="cadastrar()" id="bota_cad">Entrar</button>
     <a href="./index.html">Voltar ao inicio</a>
   </div>
 
