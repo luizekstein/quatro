@@ -222,6 +222,11 @@ public class Login extends javax.swing.JFrame {
         painelDireita.add(imgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 20, 20));
 
         imgCadeado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cadeado.png"))); // NOI18N
+        imgCadeado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                imgCadeadoFocusGained(evt);
+            }
+        });
         painelDireita.add(imgCadeado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 20, 20));
 
         javax.swing.GroupLayout painelFundoLayout = new javax.swing.GroupLayout(painelFundo);
@@ -289,6 +294,10 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void imgCadeadoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_imgCadeadoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imgCadeadoFocusGained
 
     /**
      * @param args the command line arguments
