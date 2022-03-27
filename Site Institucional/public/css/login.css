@@ -1,149 +1,112 @@
 /* Fonte */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
 :root {
     /* Colors light */
     --pink-main: #FD60AF;
     --purple-dark: #554DD4;
     --purple-light: #A45EE3;
+    --font-color: white;
 
-    /* Colors dark */
-    --yellow-main: #FABB28;
-    --black-light: #211E1F;
-    --black-main: #0C0C0C;
+    --shadow: box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
 
-    /* Sombra */
-    /*
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
-
-*/
 }
-
-* {
-    padding: 0;
+body{
+    background-color: #554DD4;
+}
+*{
     margin: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-
-body {
-    background-color: var(--black-light);
-    font-family: 'Spartan', sans-serif;
+    padding: 0;
+    font-family: Poppins;
     color: white;
 }
 
-*,
-*:before,
-*:after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.dark_mode:root{
+    --pink-main: #FABB28;
+    --purple-dark: #211E1F;
+    --purple-light: #0C0C0C;
+    --font-color: black;
 }
 
-.background {
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
+@font-face {
+    font-family: 'Clarika';
+    src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
 }
 
-.background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
+::-webkit-scrollbar {
+    background-color: var(--pink-main);
+    width: 8px;
 }
 
-.shape:first-child {
-    background: linear-gradient(var(--pink-main),
-            var(--purple-light));
-    left: -120px;
-    top: -60px;
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
 }
 
-.shape:last-child {
-    background: linear-gradient(to right,
-            var(--purple-light),
-            var(--pink-main));
-    right: -100px;
-    bottom: -40px;
+.container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 90%;
 }
 
-#form_login {
-    height: 60vh;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.13);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 20px 35px;
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 50%;
+    width: 40%;
 }
 
-#form_login * {
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    letter-spacing: 0.5px;
+span{
+    color: var(--pink-main);
+}
+input{
+    width: 60%;
+    padding: 2%;
+    background: transparent;
+    border: 1px solid white;
     outline: none;
-    border: none;
-}
-
-#form_login h3 {
-    font-size: 27px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-input {
-    display: block;
-    height: 42px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 6px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-::placeholder {
-    color: #e5e5e5;
-}
-
-button {
-    margin-top: 20px;
-    width: 100%;
-    content: "Cadastrar";
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
     border-radius: 5px;
-    cursor: pointer;
+}
+input::placeholder{
+    color: white;
+    font-style: italic;
+}
+ #passWordConfirm{
+    margin-right: 36%;
 }
 
-.loading-div {
-    width: 50px;
-    /* border: 3px solid pink; */
-    margin: auto;
-    display: none;
+label{
+    margin-right: 53%;
 }
+button{
+    cursor: pointer;
+    width: 65%;
+    font-weight: bold;
+    font-size: 1.2vw;
+    border: none;
+    padding: 2%;
+    border-radius: 5px;
+    background-color: var(--pink-main);
+}
+i{
+    font-size: 0.8vw;
+   
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }

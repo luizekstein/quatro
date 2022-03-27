@@ -1,3 +1,4 @@
+/* Fonte */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
@@ -5,101 +6,111 @@
     --pink-main: #FD60AF;
     --purple-dark: #554DD4;
     --purple-light: #A45EE3;
+    --font-color: white;
 
-    /* Colors dark */
-    --yellow-main: #FABB28;
-    --black-light: #211E1F;
-    --black-main: #0C0C0C;
-
-    /* Sombra */
-
-    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37); */
+    --shadow: box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
 
 }
-
-body {
-    background: linear-gradient(1deg, #554DD4 0%, #A45EE3 27%, #FD60AF 75%);
-}
-
-* {
-    color: white;
-}
-
-h1,
-h2,
-h3 {
-    font-family: poppins;
-
-}
-
-p {
-    font-family: poppins, medium;
-}
-
-a {
-    text-decoration: none;
-    color: var(--purple-dark);
-}
-
-* {
+*{
     margin: 0;
     padding: 0;
+    font-family: Poppins;
 }
 
-.plans {
+.dark_mode:root{
+    --pink-main: #FABB28;
+    --purple-dark: #211E1F;
+    --purple-light: #0C0C0C;
+    --font-color: black;
+}
+
+@font-face {
+    font-family: 'Clarika';
+    src: url(./Wild\ Edge\ -\ Clarika\ Pro\ GeoDEMO\ Heavy.otf);
+}
+
+::-webkit-scrollbar {
+    background-color: var(--pink-main);
+    width: 8px;
+}
+body{
+    background-color: var(--pink-main);
+}
+.main{
+    height: 84vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 94vh;
-
 }
 
-.container_plans {
+.plans-container{
+    height: 90%;
+    width: 90%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    height: 90%;
-    width: 80%;
-    border-radius: 5px;
+    justify-content: space-evenly;
 }
 
-.card {
+.plan{
     display: flex;
     flex-direction: column;
+    
     height: 60%;
-    width: 27%;
-    border-radius: 5px;
-    background-color: var(--purple-dark);
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+    width: 28%;
+    background-color: white;
+    border-radius: 0.5rem;
 }
+.plan-main{
+    height: 75%;
+    width: 30%;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+.plans-container span{
+    font-size: 0.8vw;
+    margin-left: 2%;
 
-.vetor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+.plans-container h1{
+    font-size: 2.5vw;
+    margin-left: 4%;
+
+}
+.plans-container h2{
+    font-weight: 600;
+    font-size: 0.9vw;
+    margin-left: 4%;
+
+}
+.plans-container h3{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 5%;
+    font-size: 0.8vw;
+    margin-left: 4%;
+   
+}
+.emphasis{
+    height: 30%;
     width: 100%;
-    height: 38%;
-    border-radius: 5px 5px 0px 0px;
-    border-bottom: 2px solid white;
-}
-
-.vetor img {
-    height: 60px;
-}
-
-.vetor_container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    height: 100%;
 
+    background-color: var(--purple-dark);
+    border-radius: 0.5rem 0.5rem 0px 0px;
 }
-
-.month {
-    font-size: 9px;
+.emphasis h1{
+    font-size: 2.5vw;
+    color: white;
 }
-
-.check img {
-    height: 20px;
+.button{
+    cursor: pointer;
+    margin-top: 4%;
+    padding: 2%;
+    border-radius: 3rem;
+    color: white;
+    margin-left: 23%;
+    background-color: var(--purple-dark);
+    text-align: center;
+    width: 50%;
 }
