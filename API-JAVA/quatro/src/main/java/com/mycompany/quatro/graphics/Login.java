@@ -65,7 +65,7 @@ public class Login extends javax.swing.JFrame {
         imgQuatro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo-quatro.png"))); // NOI18N
 
         txtTituloQuatro.setBackground(new java.awt.Color(33, 30, 31));
-        txtTituloQuatro.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        txtTituloQuatro.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         txtTituloQuatro.setForeground(new java.awt.Color(204, 204, 204));
         txtTituloQuatro.setText("Monitoramento de servidores de e-commerce");
 
@@ -73,21 +73,24 @@ public class Login extends javax.swing.JFrame {
         painelEsquerda.setLayout(painelEsquerdaLayout);
         painelEsquerdaLayout.setHorizontalGroup(
             painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelEsquerdaLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTituloQuatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(imgQuatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(21, 21, 21))
+            .addGroup(painelEsquerdaLayout.createSequentialGroup()
+                .addGroup(painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelEsquerdaLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(txtTituloQuatro))
+                    .addGroup(painelEsquerdaLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(imgQuatro)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         painelEsquerdaLayout.setVerticalGroup(
             painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelEsquerdaLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addGap(117, 117, 117)
                 .addComponent(imgQuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtTituloQuatro)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         painelDireita.setBackground(new java.awt.Color(253, 96, 175));
@@ -122,7 +125,7 @@ public class Login extends javax.swing.JFrame {
                 ckOlhoActionPerformed(evt);
             }
         });
-        painelDireita.add(ckOlho, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 50, 30));
+        painelDireita.add(ckOlho, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 30, 30));
 
         txtPassword.setBackground(new java.awt.Color(253, 96, 175));
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -156,7 +159,7 @@ public class Login extends javax.swing.JFrame {
                 txtXMouseClicked(evt);
             }
         });
-        painelDireita.add(txtX, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 30, 20));
+        painelDireita.add(txtX, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 30, 20));
 
         painelRegistrar.setBackground(new java.awt.Color(253, 96, 175));
         painelRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
