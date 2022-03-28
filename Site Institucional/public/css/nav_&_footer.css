@@ -51,16 +51,21 @@ a {
     width: 100%;
     background-color: var(--purple-light);
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
-  
-  .site-identity h1 {
-    color: white;
-    font-size: 1.5em;
-    margin: .6em 0;
-    display: inline-block;
+
+  .site-identity{
+    padding-left: 4%;
+  }
+
+  .footer-identity img {
+    height: 3vw;
   }
   
+  .site-identity img {
+    height: 30px;
+  }
   
   .site-navigation ul, 
   .site-navigation li {
@@ -115,6 +120,7 @@ a {
   
   .footer-distributed .footer-links{
     color:  #ffffff;
+   
     margin: 0 0 10px;
     padding: 0;
   }
