@@ -4,6 +4,11 @@
  */
 package com.mycompany.quatro.graphics;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  *
  * @author Bruno Dias
@@ -81,7 +86,6 @@ public class Login extends javax.swing.JFrame {
         );
 
         painelDireita.setBackground(new java.awt.Color(253, 96, 175));
-        painelDireita.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtUsername.setBackground(new java.awt.Color(253, 96, 175));
         txtUsername.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -98,11 +102,9 @@ public class Login extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
-        painelDireita.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 210, 30));
 
         separator1.setBackground(new java.awt.Color(204, 204, 204));
         separator1.setForeground(new java.awt.Color(204, 204, 204));
-        painelDireita.add(separator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 210, 10));
 
         txtPassword.setBackground(new java.awt.Color(253, 96, 175));
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -122,11 +124,9 @@ public class Login extends javax.swing.JFrame {
                 txtPasswordActionPerformed(evt);
             }
         });
-        painelDireita.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 210, 30));
 
         separator2.setBackground(new java.awt.Color(204, 204, 204));
         separator2.setForeground(new java.awt.Color(204, 204, 204));
-        painelDireita.add(separator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 210, 10));
 
         txtX.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         txtX.setForeground(new java.awt.Color(33, 30, 31));
@@ -136,7 +136,6 @@ public class Login extends javax.swing.JFrame {
                 txtXMouseClicked(evt);
             }
         });
-        painelDireita.add(txtX, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 30, -1));
 
         painelRegistrar.setBackground(new java.awt.Color(253, 96, 175));
         painelRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -164,8 +163,6 @@ public class Login extends javax.swing.JFrame {
             .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
         );
 
-        painelDireita.add(painelRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 90, 30));
-
         painelEntrar.setBackground(new java.awt.Color(253, 96, 175));
         painelEntrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
@@ -192,13 +189,58 @@ public class Login extends javax.swing.JFrame {
             .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
         );
 
-        painelDireita.add(painelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 90, 30));
-
         jButton1.setBackground(new java.awt.Color(253, 96, 175));
         jButton1.setForeground(new java.awt.Color(204, 204, 204));
         jButton1.setText("Esqueceu sua senha?");
         jButton1.setBorder(null);
-        painelDireita.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
+
+        javax.swing.GroupLayout painelDireitaLayout = new javax.swing.GroupLayout(painelDireita);
+        painelDireita.setLayout(painelDireitaLayout);
+        painelDireitaLayout.setHorizontalGroup(
+            painelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(txtX, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(painelRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(painelEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jButton1))
+        );
+        painelDireitaLayout.setVerticalGroup(
+            painelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelDireitaLayout.createSequentialGroup()
+                .addComponent(txtX)
+                .addGap(46, 46, 46)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(painelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(painelRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painelEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton1))
+        );
 
         javax.swing.GroupLayout painelFundoLayout = new javax.swing.GroupLayout(painelFundo);
         painelFundo.setLayout(painelFundoLayout);
@@ -212,7 +254,7 @@ public class Login extends javax.swing.JFrame {
         painelFundoLayout.setVerticalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painelEsquerda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(painelDireita, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+            .addComponent(painelDireita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,11 +297,23 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordFocusLost
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+        String[] args;
+        try {
+            URI link = new URI("www.google.com");
+            Desktop.getDesktop().browse(link);
+        } catch (IOException | URISyntaxException error) {
+            System.out.println(error);
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
+        String[] args;
+        try {
+            URI link = new URI("www.google.com");
+            Desktop.getDesktop().browse(link);
+        } catch (IOException | URISyntaxException error) {
+            System.out.println(error);
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
@@ -282,7 +336,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
