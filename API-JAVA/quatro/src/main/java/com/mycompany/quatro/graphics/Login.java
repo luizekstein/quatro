@@ -29,12 +29,10 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         painelFundo = new javax.swing.JPanel();
         painelEsquerda = new javax.swing.JPanel();
-        imgQuatro = new javax.swing.JLabel();
         txtTituloQuatro = new javax.swing.JLabel();
         painelDireita = new javax.swing.JPanel();
         txtUsername = new javax.swing.JTextField();
         separator1 = new javax.swing.JSeparator();
-        ckOlho = new javax.swing.JCheckBox();
         txtPassword = new javax.swing.JPasswordField();
         separator2 = new javax.swing.JSeparator();
         txtX = new javax.swing.JLabel();
@@ -42,9 +40,7 @@ public class Login extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JButton();
         painelEntrar = new javax.swing.JPanel();
         btnEntrar = new javax.swing.JButton();
-        txtEsqueceuSuaSenha = new javax.swing.JLabel();
-        imgUsuario = new javax.swing.JLabel();
-        imgCadeado = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,8 +58,6 @@ public class Login extends javax.swing.JFrame {
 
         painelEsquerda.setBackground(new java.awt.Color(33, 30, 31));
 
-        imgQuatro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo-quatro.png"))); // NOI18N
-
         txtTituloQuatro.setBackground(new java.awt.Color(33, 30, 31));
         txtTituloQuatro.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
         txtTituloQuatro.setForeground(new java.awt.Color(204, 204, 204));
@@ -74,21 +68,14 @@ public class Login extends javax.swing.JFrame {
         painelEsquerdaLayout.setHorizontalGroup(
             painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelEsquerdaLayout.createSequentialGroup()
-                .addGroup(painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelEsquerdaLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(txtTituloQuatro))
-                    .addGroup(painelEsquerdaLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(imgQuatro)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(txtTituloQuatro)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         painelEsquerdaLayout.setVerticalGroup(
             painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelEsquerdaLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(imgQuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(202, 202, 202)
                 .addComponent(txtTituloQuatro)
                 .addContainerGap(134, Short.MAX_VALUE))
         );
@@ -111,21 +98,11 @@ public class Login extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
-        painelDireita.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 210, 30));
+        painelDireita.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 210, 30));
 
         separator1.setBackground(new java.awt.Color(204, 204, 204));
         separator1.setForeground(new java.awt.Color(204, 204, 204));
         painelDireita.add(separator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 210, 10));
-
-        ckOlho.setBackground(new java.awt.Color(253, 96, 175));
-        ckOlho.setForeground(new java.awt.Color(204, 204, 204));
-        ckOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olho.png"))); // NOI18N
-        ckOlho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ckOlhoActionPerformed(evt);
-            }
-        });
-        painelDireita.add(ckOlho, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 30, 30));
 
         txtPassword.setBackground(new java.awt.Color(253, 96, 175));
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -159,7 +136,7 @@ public class Login extends javax.swing.JFrame {
                 txtXMouseClicked(evt);
             }
         });
-        painelDireita.add(txtX, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 30, 20));
+        painelDireita.add(txtX, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 30, -1));
 
         painelRegistrar.setBackground(new java.awt.Color(253, 96, 175));
         painelRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -217,20 +194,11 @@ public class Login extends javax.swing.JFrame {
 
         painelDireita.add(painelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 90, 30));
 
-        txtEsqueceuSuaSenha.setForeground(new java.awt.Color(204, 204, 204));
-        txtEsqueceuSuaSenha.setText("              Esqueceu sua senha?");
-        painelDireita.add(txtEsqueceuSuaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 210, -1));
-
-        imgUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pessoa.png"))); // NOI18N
-        painelDireita.add(imgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 20, 20));
-
-        imgCadeado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cadeado.png"))); // NOI18N
-        imgCadeado.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                imgCadeadoFocusGained(evt);
-            }
-        });
-        painelDireita.add(imgCadeado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 20, 20));
+        jButton1.setBackground(new java.awt.Color(253, 96, 175));
+        jButton1.setForeground(new java.awt.Color(204, 204, 204));
+        jButton1.setText("Esqueceu sua senha?");
+        jButton1.setBorder(null);
+        painelDireita.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
 
         javax.swing.GroupLayout painelFundoLayout = new javax.swing.GroupLayout(painelFundo);
         painelFundo.setLayout(painelFundoLayout);
@@ -282,10 +250,6 @@ public class Login extends javax.swing.JFrame {
         txtPassword.setText("");
     }//GEN-LAST:event_txtPasswordFocusGained
 
-    private void ckOlhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckOlhoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ckOlhoActionPerformed
-
     private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordFocusLost
@@ -297,10 +261,6 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEntrarActionPerformed
-
-    private void imgCadeadoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_imgCadeadoFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imgCadeadoFocusGained
 
     /**
      * @param args the command line arguments
@@ -334,10 +294,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JCheckBox ckOlho;
-    private javax.swing.JLabel imgCadeado;
-    private javax.swing.JLabel imgQuatro;
-    private javax.swing.JLabel imgUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel painelDireita;
     private javax.swing.JPanel painelEntrar;
@@ -346,7 +303,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel painelRegistrar;
     private javax.swing.JSeparator separator1;
     private javax.swing.JSeparator separator2;
-    private javax.swing.JLabel txtEsqueceuSuaSenha;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JLabel txtTituloQuatro;
     private javax.swing.JTextField txtUsername;
