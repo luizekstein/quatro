@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
-        painelDireita.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 210, 30));
+        painelDireita.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 210, 30));
 
         separator1.setBackground(new java.awt.Color(204, 204, 204));
         separator1.setForeground(new java.awt.Color(204, 204, 204));
