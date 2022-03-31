@@ -366,13 +366,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel4ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jLabel4ComponentHidden
-        if (jLabel4.isShowing()) {
-            txtUsername.setVisible(false);
-            txtPassword.setVisible(true);
-        } else {
-            txtUsername.setVisible(true);
-            txtPassword.setVisible(false);
-        }
+//        if (jLabel4.isShowing()) {
+//            txtUsername.setVisible(false);
+//            txtPassword.setVisible(true);
+//        } else {
+//            txtUsername.setVisible(true);
+//            txtPassword.setVisible(false);
+//        }
     }//GEN-LAST:event_jLabel4ComponentHidden
 
     /**
