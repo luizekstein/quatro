@@ -39,19 +39,112 @@
         <div class="container">
             <h1>Cadastro</h1>
             <h4>Cria sua conta na <span>Quatro!</span></h4>
-            <form action="">
+            <form action="#" name="cadastro" id="cadastro" onSubmit="cadastrar()">
                 <label for="">CNPJ</label>
-                <input placeholder="Apenas números" type="number">
+                <input id="in_cnpj" placeholder="Apenas números" type="number">
+
                 <label for="">Email</label>
-                <input placeholder="Email comercial" type="email">
+                <input id="in_email" placeholder="Email comercial" type="email">
+
                 <label for="">Senha</label>
-                <input placeholder="*******" type="password">
+                <input id="in_senha" placeholder="*******" type="password">
+
                 <label id="passWordConfirm" for=""> Confirmar Senha</label>
-                <input placeholder="*******" type="password">
-                <button>Criar conta</button>
+                <input id="in_senha_confirm" placeholder="*******" type="password">
+
+                <button type="submit">Criar conta</button>
                 <i>Já possui conta? <a href="./login.html" style="font-weight: bold;">Entrar</a></i>
             </form>
+            <div id="div_aguardar" style="display: none;">
+              <img style="height: 30px;"
+                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+            </div>
         </div>
     </div>
 </body>
 </html>
+
+<script>
+  function limparFormulario() {
+    document.getElementById("cadastro").reset();
+  }
+
+  function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "block";
+}
+
+function finalizarAguardar() {
+  aguardar();
+  var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "none";
+}
+
+  function cadastrar() {
+    aguardar();
+    var email = in_email.value;
+    var cnpj = in_cnpj.value;
+    var senha = in_senha.value;
+    var confirmacaoSenha = in_senha_confirm.value;
+
+    if (email.trim() == "" || cnpj.trim() == "" || senha.trim() == "" || confirmacaoSenha.trim() == "") {
+       window.alert("Preencha todos os campos para prosseguir!");
+      if (email.trim() == "") {
+        console.log('email está em branco')
+      }
+
+      if (cnpj.trim() == "") {
+        console.log('cnpj está em branco');
+      }
+      if (senha.trim() == "") {
+        console.log('senha está em branco')
+      }
+      if (confirmacaoSenha.trim() == "") {
+        console.log('confirmacaoSenha está em branco')
+      }
+      finalizarAguardar();
+      return false;
+    } 
+    
+     if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+       window.alert("E-mail inválido! Verifique e tente novamente.");
+      return false;
+      finalizarAguardar();
+    }
+    
+    if (senha != confirmacaoSenha) {
+       window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+      finalizarAguardar();
+      return false;
+    } 
+
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cnpj: cnpj,
+        email: email,
+        senha: senha,
+      })
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+         window.alert("Cadastro realizado com sucesso!");
+        window.location = "./login.html";
+        limparFormulario();
+       finalizarAguardar();
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      finalizarAguardar();
+      return false;
+    });
+  }
+</script>
