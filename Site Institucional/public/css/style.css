@@ -161,22 +161,47 @@
     justify-content: space-around;
     flex-direction: column;
 }
-.button-works{
-    cursor: pointer;
-    width: 70%;
-    color: white;
+.btn {
+    
+    position: relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--pink-main);
-    border-radius: 20px;
-    height: 15%;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration:none;
+    font-weight:900;
+    font-size:17px;
+    letter-spacing: 0.045em;
+}
+.btn span{
+    color: #0C0C0C;
+}
+.btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.button-works h2{
-    font-size: 1.5vw;
+.btn svg rect {
+    stroke: #FD60AF;
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
 
+
+.btn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
 }
 .options{
     height: 150px;
@@ -202,4 +227,53 @@
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34); 
     box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34);
+}
+
+
+@media (max-width: 800px){
+    .container-card{
+        display: flex;
+        height: 80%;
+        width: 96%;
+        justify-content: space-evenly;
+        align-items: center;
+    
+    }
+
+    .container{
+        display: flex;
+        height: 80%;
+        width: 80%;
+        background-color: yellow;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    .card{
+        height: 56%;
+        width: 28%;
+        font-size: 2vw;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        border-radius: 1em;
+        -webkit-box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34); 
+        box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.34);
+    }
+    .card img{
+        height: 80px;
+    }
+    .card-text{
+        text-align: center;
+    }
+}
+
+@media (max-width: 1000px){
+  
+}
+
+@media (max-width: 500px){
+  
 }
