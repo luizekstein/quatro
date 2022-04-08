@@ -12,15 +12,15 @@
     <div class="container_nav">
         <header class="site-header">
             <div class="site-identity">
-              <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>            </div>  
+              <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>            
             </div>  
             <nav style="margin-right: 5%;"class="site-navigation">
               <ul class="nav">
                 <li><a href="./sobrenos.html">Sobre nós</a></li> 
                 <li><a href="./plans.html">Planos</a></li> 
                 <li><a href="./dashboard.html">Dashboard</a></li> 
-                <li><a style="font-weight: bold;" href="./cadastro.html">Cadastro</a></li> 
-                <li><a href="./login.html">Login</a></li>
+                <li><a style="font-weight: bold;"  href="./cadastro.html">Cadastro</a></li> 
+                <li><a  href="./login.html">Login</a></li>
                 <!--
                 <li>
                     <label class="switch">
@@ -33,23 +33,25 @@
          
               </ul>
             </nav>
+             
+            
           </header>
-        </div>
+        </div> 
     <div class="main">
         <div class="container">
             <h1>Cadastro</h1>
             <h4>Cria sua conta na <span>Quatro!</span></h4>
             <form action="#" name="cadastro" id="cadastro" onSubmit="cadastrar()">
-                <label for="">CNPJ</label>
+                <label for="in_cnpj">CNPJ</label>
                 <input id="in_cnpj" placeholder="Apenas números" type="number">
 
-                <label for="">Email</label>
+                <label for="in_email">Email</label>
                 <input id="in_email" placeholder="Email comercial" type="email">
 
-                <label for="">Senha</label>
+                <label for="in_senha">Senha</label>
                 <input id="in_senha" placeholder="*******" type="password">
 
-                <label id="passWordConfirm" for=""> Confirmar Senha</label>
+                <label id="passWordConfirm" for="in_senha_confirm"> Confirmar Senha</label>
                 <input id="in_senha_confirm" placeholder="*******" type="password">
 
                 <button type="submit">Criar conta</button>

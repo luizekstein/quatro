@@ -114,3 +114,215 @@ body{
     text-align: center;
     width: 50%;
 }
+
+
+    .emphasis{
+        height: 30%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    
+        background-color: var(--purple-dark);
+        border-radius: 0.5rem 0.5rem 0px 0px;
+    }
+    .emphasis h1{
+        font-size: 2.5vw;
+        color: white;
+    }
+    .button{
+        cursor: pointer;
+        margin-top: 4%;
+        padding: 2%;
+        border-radius: 3rem;
+        color: white;
+        margin-left: 23%;
+        background-color: var(--purple-dark);
+        text-align: center;
+        width: 50%;
+    }
+
+    @media (max-width: 600px){
+        .main{
+            height: 84vh;
+            display: flex;
+            
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .plans-container{
+            height: 90%;
+            width: 98%;
+            display: flex;
+            
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .plan{
+            display: flex;
+            flex-direction: column;
+            font-size: 8px;
+            height: 30%;
+            width: 27%;
+            background-color: white;
+            border-radius: 0.5rem;
+        }
+        .plan-main{
+            height: 45%;
+            width: 40%;
+            
+            background-color: white;
+            border-radius: 0.5rem;
+        }
+    
+        .plan-main h1{
+            font-size: 27px;
+        }
+        .plan h1{
+            font-size: 20px;
+        }
+        .plan-main h2{
+            font-size: 12px;
+        }
+        .plan h2{
+            font-size: 7px;
+           
+        }
+        .plan-main h3{
+            font-size: 9px;
+        }
+        .plan h3{
+            font-size: 7px;
+           
+        }
+        .plans-container span{
+            font-size: 10px;
+            margin-left: 2%;
+        }
+       
+        
+        }
+    @media (max-width: 800px){
+            .main{
+                height: 84vh;
+                display: flex;
+                
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .plans-container{
+                height: 90%;
+                width: 98%;
+                display: flex;
+                
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .plan{
+                display: flex;
+                flex-direction: column;
+                font-size: 8px;
+                height: 30%;
+                width: 27%;
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+            .plan-main{
+                height: 45%;
+                width: 40%;
+                
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+        
+            .plan-main h1{
+                font-size: 27px;
+            }
+            .plan h1{
+                font-size: 20px;
+            }
+            .plan-main h2{
+                font-size: 12px;
+            }
+            .plan h2{
+                font-size: 7px;
+               
+            }
+            .plan-main h3{
+                font-size: 9px;
+            }
+            .plan h3{
+                font-size: 7px;
+               
+            }
+            .plans-container span{
+                font-size: 10px;
+                margin-left: 2%;
+            }
+           
+            
+        }
+        @media (max-width: 1000px){
+            .main{
+                height: 84vh;
+                display: flex;
+                
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .plans-container{
+                height: 90%;
+                width: 98%;
+                display: flex;
+                
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .plan{
+                display: flex;
+                flex-direction: column;
+                font-size: 8px;
+                height: 40%;
+                width: 27%;
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+            .plan-main{
+                height: 54%;
+                width: 40%;
+                background-color: white;
+                border-radius: 0.5rem;
+            }
+        
+            .plan-main h1{
+                font-size: 27px;
+            }
+            .plan h1{
+                font-size: 20px;
+            }
+            .plan-main h2{
+                font-size: 12px;
+            }
+            .plan h2{
+                font-size: 10px;
+               
+            }
+            .plan-main h3{
+                font-size: 10px;
+            }
+            .plan h3{
+                font-size: 9px;
+               
+            }
+            .plans-container span{
+                font-size: 10px;
+                margin-left: 2%;
+            }
+           
+            
+            }
