@@ -54,14 +54,13 @@ body{
 .plan{
     display: flex;
     flex-direction: column;
-    
-    height: 60%;
+    height: 65%;
     width: 28%;
     background-color: white;
     border-radius: 0.5rem;
 }
 .plan-main{
-    height: 75%;
+    height: 85%;
     width: 30%;
     background-color: white;
     border-radius: 0.5rem;
