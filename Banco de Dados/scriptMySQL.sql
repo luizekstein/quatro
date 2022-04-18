@@ -1,78 +1,78 @@
 create database 4four;
-
 use 4four;
 
-create table cliente(
-id_cliente int primary key auto_increment,
-nome_empresa varchar(45),
-nicho varchar(45),
+create table client(
+id_client int primary key auto_increment,
+company_name varchar(45),
+specification varchar(45),
 cnpj varchar(14),
-plano varchar(45)
+plan varchar(45)
 ) auto_increment = 100;
 
-create table usuario (
-id_usuario int primary key auto_increment,
-nome varchar(45),
+create table user(
+id_user int primary key auto_increment,
+name varchar(45),
 login varchar(45),
-senha varchar(45),
-permissao varchar(45),
-fk_cliente int,
-foreign key (fk_cliente) references Cliente(id_cliente)
+password varchar(45),
+permission varchar(45),
+fk_client int,
+foreign key (fk_client) references Client(id_client)
 )auto_increment = 200;
 
-create table ocorrencia (
-id_ocorrencia int primary key auto_increment,
-tipo_ocorrencia varchar(45),
-descricao varchar(45),
-statusOcorrencia varchar(45),
-fk_usuario int,
-fk_cliente int,
-foreign key (fk_usuario) references usuario(id_usuario),
-foreign key (fk_cliente) references cliente(id_cliente)
+create table server (
+id_server int primary key auto_increment,
+server_name varchar(45),
+operational_system varchar(45),
+ip varchar(45),
+location varchar(45),
+fk_client int,
+foreign key (fk_client) references client(id_client)
 )auto_increment = 300;
 
-create table servidor (
-id_servidor int primary key auto_increment,
-nome_servidor varchar(45),
-memoria int,
-ram int,
-disco int,
-fk_cliente int,
-foreign key (fk_cliente) references cliente(id_cliente)
+create table request (
+id_request int primary key auto_increment,
+location varchar(45),
+request_date datetime,
+fk_server int,
+foreign key (fk_server) references server(id_server)
 )auto_increment = 400;
 
-create table copia_seguranca (
-id_copia int primary key auto_increment,
-conteudo varchar(1000),
-data_geracao datetime,
-fk_servidor int,
-foreign key (fk_servidor) references servidor(id_servidor)
-)auto_increment 500;
+create table unit_of_measurement(
+id_unit_of_measurement int primary key auto_increment,
+unit varchar(45)
+)auto_increment = 500;
 
-create table requisicao (
-id_requisicao int primary key auto_increment,
-tipoRequisicao varchar(45),
-dtRequisicao datetime,
-fk_servidor int,
-foreign key (fk_servidor) references servidor(id_servidor)
-)auto_increment = 600;
+create table component(
+id_hardware int primary key auto_increment,
+item varchar(45),
+size int,
+temperature double,
+clock double,
+speed_unit varchar(45),
+clock_unit varchar(45),
+fk_server int,
+temperature_unit double,
+foreign key (fk_server) references server(id_server),
+foreign key (temperature_unit) references unit_of_measurement(id_measurement)
+) auto_increment = 600;
 
-create table dado (
-id_dado int primary key auto_increment,
-registroMemoria int,
-registroRam int,
-registroDisco int,
-dataRegistro datetime,
-fk_servidor int,
-foreign key (fk_servidor) references servidor(id_servidor)
+create table measurement(
+id_measurement int primary key auto_increment,
+measurement_usage double,
+temperature double,
+measurement_date datetime,
+usage_unit varchar(45),
+temperature_unit varchar(45),
+fk_component int,
+foreign key (fk_component) references component(id_component)
 )auto_increment = 700;
 
-create table relatorio (
-id_relatorio int primary key auto_increment,
-analise varchar(1000),
-data_relatorio datetime,
-fk_dado int,
-fk_servidor int,
-foreign key (fk_dado) references dado(id_dado),
-foreign key (fk_servidor) references servidor(id_servidor)
+create table alert(
+id_alert int primary key auto_increment,
+log varchar(1000),
+alert_date datetime,
+fk_measurement int,
+foreign key (fk_measurement) references measurement(id_measurement)
 )auto_increment = 800;
+
+
