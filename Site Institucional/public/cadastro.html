@@ -9,34 +9,27 @@
     <title>Cadastro</title>
 </head>
 <body>
-    <div class="container_nav">
-        <header class="site-header">
+  <div class="container-nav">
+    <header class="site-header">
+        <nav class="site-navigation">
             <div class="site-identity">
-              <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>            
-            </div>  
-            <nav style="margin-right: 5%;"class="site-navigation">
-              <ul class="nav">
-                <li><a href="./sobrenos.html">Sobre nós</a></li> 
-                <li><a href="./plans.html">Planos</a></li> 
-                <li><a href="./dashboard.html">Dashboard</a></li> 
-                <li><a style="font-weight: bold;"  href="./cadastro.html">Cadastro</a></li> 
-                <li><a  href="./login.html">Login</a></li>
-                <!--
-                <li>
-                    <label class="switch">
-                    <input type="checkbox" id="switch" checked>
-                    <span class="slider round"></span>
-                  </label>
-                 <a>Modo escuro</a> 
-                </li>
-              -->
-         
-              </ul>
-            </nav>
-             
-            
-          </header>
-        </div> 
+                <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./sobrenos.html">Sobre nós</a></li>
+                <li><a href="./plans.html">Planos</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>   
     <div class="main">
         <div class="container">
             <h1>Cadastro</h1>
@@ -65,7 +58,7 @@
     </div>
 </body>
 </html>
-
+<script src="nav.js"></script>
 <script>
   function limparFormulario() {
     document.getElementById("cadastro").reset();

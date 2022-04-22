@@ -32,6 +32,11 @@
     justify-content: space-evenly;
     height: 90%;
 }
+
+body {
+  overflow-x: hidden;
+}
+
 li {
     list-style: none;
 }
@@ -52,11 +57,12 @@ a {
     background-color: var(--purple-light);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .site-identity{
     padding-left: 4%;
+    margin: auto;
   }
 
   .footer-identity img {
@@ -67,6 +73,11 @@ a {
     height: 30px;
   }
   
+  .site-navigation {
+    width: 100%;
+    display: flex;
+    margin-right: 5%;
+  }
   .site-navigation ul, 
   .site-navigation li {
     margin: 0; 
@@ -76,6 +87,39 @@ a {
   .site-navigation li {
     display: inline-block;
     margin: 1.4em 1em 1em 1em;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .hamburger div {
+    width: 30px;
+    height: 3px;
+    background: #f2f5f7;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .toggle .line2 {
+    transition: all 0.5s ease;
+    width: 0;
+  }
+  
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
   }
 
   .footer-distributed{
@@ -230,6 +274,51 @@ a {
   }
   
   @media (max-width: 800px) {
+
+    .site-navigation {
+      position: fixed;
+      background-color: var(--purple-light);
+      height: 13%;
+      margin-right: 0%;
+    }
+    nav {
+      position: fixed;
+      z-index: 3;
+      background-color: white;
+    }
+  
+    .nav-links {
+      justify-content: space-evenly;
+    }
+
+    .site-identity {
+      position: absolute;
+      top: 55%;
+    }
+  
+    .hamburger {
+      display: block;
+      position: absolute;
+      cursor: pointer;
+      right: 5%;
+      top: 58%;
+      z-index: 2;
+    }
+  
+    .nav-links {
+      position: fixed;
+      background: var(--purple-light);
+      height: 110%;
+      width: 100%;
+      flex-direction: column;
+      clip-path: circle(50px at 90% -20%);
+      transition: all 1s ease-out;
+    }
+  
+    .nav-links.open {
+      clip-path: circle(100%);
+      -webkit-clip-path: circle(100%);
+    }
 
     .footer-distributed{
       padding: 30px;
