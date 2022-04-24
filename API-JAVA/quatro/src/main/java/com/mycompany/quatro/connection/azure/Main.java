@@ -1,5 +1,6 @@
 package com.mycompany.quatro.connection.azure;
 
+import com.mycompany.quatro.graphics.DashboardHome;
 import com.mycompany.quatro.graphics.Login;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,9 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Login login = new Login();
-        login.setVisible(true);
-
+        new Login().setVisible(true);
+//        new DashboardHome().setVisible(true);
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stnt = null;
 
