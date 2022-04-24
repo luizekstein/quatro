@@ -31,7 +31,7 @@ public class Main {
                 System.out.println(String.format("Uso processador: %.2f", looca.getProcessador().getUso()));
                 System.out.println("Frequência do processador: " + looca.getProcessador().getFrequencia());
                 System.out.println("Temperatura do processador: " + looca.getTemperatura());
-                insertion.memoryMeasurementInsertion(10073583616L, dtf.format(now), 2);
+                insertion.memoryMeasurementInsertion(looca.getMemoria().getEmUso(), dtf.format(now), 2);
                 System.out.println(String.format("Memória: %d", looca.getMemoria().getEmUso()));
                 for(OSFileStore fileStore : osFileStores) {
                     insertion.diskMeasurementInsertion((fileStore.getTotalSpace() - fileStore.getFreeSpace()), dtf.format(now), fileStore.getUUID());
