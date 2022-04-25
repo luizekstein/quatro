@@ -220,12 +220,12 @@ public class DashboardHome extends javax.swing.JFrame {
         txtOs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtOs.setForeground(new java.awt.Color(255, 255, 255));
         txtOs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtOs.setText(hardware.getOperationalSystem());
+        txtOs.setText("jLabel13");
 
         txtCpu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtCpu.setForeground(new java.awt.Color(255, 255, 255));
         txtCpu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtCpu.setText(hardware.getProcessorUsage());
+        txtCpu.setText("jLabel12");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,12 +245,12 @@ public class DashboardHome extends javax.swing.JFrame {
         labelRam.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         labelRam.setForeground(new java.awt.Color(255, 255, 255));
         labelRam.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelRam.setText(hardware.getRamUsage());
+        labelRam.setText("jLabel4");
 
         txtHd.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtHd.setForeground(new java.awt.Color(255, 255, 255));
         txtHd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtHd.setText(hardware.getDiskUsage());
+        txtHd.setText("jLabel11");
 
         txtStop.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtStop.setForeground(new java.awt.Color(255, 255, 255));
@@ -332,11 +332,12 @@ public class DashboardHome extends javax.swing.JFrame {
                     .addComponent(txtOs))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPlay))
-                    .addComponent(btnStop)
-                    .addComponent(txtStop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPlay))
+                        .addComponent(txtStop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnStop, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 

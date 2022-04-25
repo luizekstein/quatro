@@ -421,12 +421,14 @@
                           </Group>
                           <EmptySpace pref="46" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtStart" max="32767" attributes="0"/>
-                                  <Component id="btnPlay" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtStart" max="32767" attributes="0"/>
+                                      <Component id="btnPlay" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtStop" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btnStop" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtStop" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="btnStop" min="-2" pref="24" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
