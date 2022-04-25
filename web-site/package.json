@@ -1,12 +1,10 @@
 {
-  "name": "projeto-quatro",
+  "name": "quatro",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
-  "author": "Feito pelos desenvolvedores @ Quatro",
-  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
