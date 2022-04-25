@@ -54,6 +54,7 @@ public class DashboardHome extends javax.swing.JFrame {
         jLabel14.setText("jLabel14");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(253, 96, 175));
 

@@ -50,6 +50,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         painelEsquerda.setBackground(new java.awt.Color(33, 30, 31));
         painelEsquerda.setForeground(new java.awt.Color(255, 255, 255));
