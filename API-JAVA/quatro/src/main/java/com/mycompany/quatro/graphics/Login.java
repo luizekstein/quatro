@@ -1,9 +1,14 @@
 package com.mycompany.quatro.graphics;
 
+import com.mycompany.quatro.connection.ConnectionSqlServer;
+import com.mycompany.quatro.login.User;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+
 import java.awt.Color;
 import java.awt.event.FocusListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -395,17 +400,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        ConnectionSqlServer mssql = new ConnectionSqlServer();
+        List<User> UsersList = mssql.getMssql().query("select * from [dbo].[user];", new BeanPropertyRowMapper<>(User.class));
+        Boolean userFind = false;
 
-        if (txtUsername.getText().equals("admin") && txtPassword.getText().equals("admin@123")) {
-            JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
-            this.dispose();
-            new DashboardHome(getName()).setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.");
-            txtUsername.setText("");
-            txtPassword.setText("********");
+        for (User user: UsersList) {
+            if(txtUsername.getText().equals(user.getLogin()) && txtPassword.getText().equals(user.getPassword())) {
+                JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
+                this.dispose();
+                new DashboardHome(user.getName()).setVisible(true);
+                userFind = true;
+            }
         }
 
+        if(userFind == false) {
+                JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.");
+                txtUsername.setText("");
+                txtPassword.setText("********");
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed

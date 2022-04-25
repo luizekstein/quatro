@@ -1,13 +1,19 @@
 package com.mycompany.quatro.graphics;
 
+import com.mycompany.quatro.measurement.HardwareData;
+import com.mycompany.quatro.measurement.Main;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
 
 public class DashboardHome extends javax.swing.JFrame {
 
     private String name;
 
+    HardwareData hardware = new HardwareData();
     public DashboardHome(String name) {
         initComponents();
         this.name = name;
@@ -213,12 +219,12 @@ public class DashboardHome extends javax.swing.JFrame {
         txtOs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtOs.setForeground(new java.awt.Color(255, 255, 255));
         txtOs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtOs.setText("jLabel13");
+        txtOs.setText(hardware.getOperationalSystem());
 
         txtCpu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtCpu.setForeground(new java.awt.Color(255, 255, 255));
         txtCpu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtCpu.setText("jLabel12");
+        txtCpu.setText(hardware.getProcessorUsage());
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,12 +244,12 @@ public class DashboardHome extends javax.swing.JFrame {
         labelRam.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         labelRam.setForeground(new java.awt.Color(255, 255, 255));
         labelRam.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelRam.setText("jLabel4");
+        labelRam.setText(hardware.getRamUsage());
 
         txtHd.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtHd.setForeground(new java.awt.Color(255, 255, 255));
         txtHd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtHd.setText("jLabel11");
+        txtHd.setText(hardware.getDiskUsage());
 
         txtStop.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtStop.setForeground(new java.awt.Color(255, 255, 255));
@@ -506,11 +512,23 @@ public class DashboardHome extends javax.swing.JFrame {
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-play-rosa.png")));
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop.png")));
+
+        Main.main(null);
+        // updating labels every 5 seconds
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                txtCpu.setText(Main.hardware.getProcessorUsage());
+                labelRam.setText(Main.hardware.getRamUsage());
+                txtHd.setText(Main.hardware.getDiskUsage());
+            }
+        }, 0, 5000);
     }//GEN-LAST:event_btnPlayActionPerformed
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-play.png")));
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop-rosa.png")));
+        Main.stop();
     }//GEN-LAST:event_btnStopActionPerformed
 
     public static void main(String args[]) {
