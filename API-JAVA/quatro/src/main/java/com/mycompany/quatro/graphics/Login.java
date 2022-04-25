@@ -91,11 +91,6 @@ public class Login extends javax.swing.JFrame {
         txtUsername.setForeground(new java.awt.Color(255, 255, 255));
         txtUsername.setText("Username");
         txtUsername.setBorder(null);
-        txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsernameFocusGained(evt);
-            }
-        });
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
@@ -113,14 +108,6 @@ public class Login extends javax.swing.JFrame {
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPasswordFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtPasswordFocusLost(evt);
-            }
-        });
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
             }
         });
 
@@ -239,7 +226,7 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Mostrar senha");
         jCheckBox1.setBorder(null);
-        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jCheckBox1.setFocusPainted(false);
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,6 +357,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+
         if (evt.getSource() == jCheckBox1) {
             if (jCheckBox1.isSelected()) {
                 txtPassword.getPassword();
@@ -379,9 +367,11 @@ public class Login extends javax.swing.JFrame {
                 txtPassword.setEchoChar('*');
             }
         }
+
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         try {
             try {
                 java.awt.Desktop.getDesktop().browse(new java.net.URI("http://www.google.com"));
@@ -396,11 +386,11 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         jButton1.setForeground(new Color(255, 255, 255));
-        jButton1.setBackground(new Color(253, 96, 175));
+        jButton1.setBackground(new Color(255, 0, 0));
     }//GEN-LAST:event_jButton1MouseExited
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        jButton1.setForeground(new Color(253, 96, 175));
+        jButton1.setForeground(new Color(255, 0, 0));
         jButton1.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton1MouseEntered
 
@@ -409,7 +399,7 @@ public class Login extends javax.swing.JFrame {
         if (txtUsername.getText().equals("admin") && txtPassword.getText().equals("admin@123")) {
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
             this.dispose();
-            new DashboardHome().setVisible(true);
+            new DashboardHome(getName()).setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.");
             txtUsername.setText("");
@@ -429,22 +419,17 @@ public class Login extends javax.swing.JFrame {
         } catch (IOException error2) {
             System.out.println(error2);
         }
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtXMouseClicked
+
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja fechar?", "Atenção", JOptionPane.YES_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
+
     }//GEN-LAST:event_txtXMouseClicked
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        //
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordFocusLost
 
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         txtPassword.setText("");
@@ -455,15 +440,7 @@ public class Login extends javax.swing.JFrame {
         txtUsername.addFocusListener((FocusListener) this);
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameFocusGained
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -482,9 +459,6 @@ public class Login extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
         });

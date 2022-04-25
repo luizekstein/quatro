@@ -13,7 +13,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Main {
+
     public static void main(String[] args) {
+
         SystemInfo systemInfo = new SystemInfo();
         OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
         FileSystem fileSystem = operatingSystem.getFileSystem();
@@ -24,16 +26,16 @@ public class Main {
         Insertion insertion = new Insertion();
         Temperatura temperatura = new Temperatura();
 
-        new Timer().scheduleAtFixedRate(new TimerTask(){
+        new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
-            public void run(){
+            public void run() {
                 insertion.cpuMeasurementInsertion(Math.round(looca.getProcessador().getUso()), temperatura.getTemperatura(), dtf.format(now), 1);
                 System.out.println(String.format("Uso processador: %.2f", looca.getProcessador().getUso()));
                 System.out.println("Frequência do processador: " + looca.getProcessador().getFrequencia());
                 System.out.println("Temperatura do processador: " + looca.getTemperatura());
                 insertion.memoryMeasurementInsertion(looca.getMemoria().getEmUso(), dtf.format(now), 2);
                 System.out.println(String.format("Memória: %d", looca.getMemoria().getEmUso()));
-                for(OSFileStore fileStore : osFileStores) {
+                for (OSFileStore fileStore : osFileStores) {
                     insertion.diskMeasurementInsertion((fileStore.getTotalSpace() - fileStore.getFreeSpace()), dtf.format(now), fileStore.getUUID());
                     System.out.println("UUID: " + fileStore.getUUID());
                     System.out.println("Espaço disponível: " + fileStore.getFreeSpace());
@@ -41,6 +43,6 @@ public class Main {
                     System.out.println("Espaço usado:" + (fileStore.getTotalSpace() - fileStore.getFreeSpace()));
                 }
             }
-        },0,5000);
+        }, 0, 5000);
     }
 }

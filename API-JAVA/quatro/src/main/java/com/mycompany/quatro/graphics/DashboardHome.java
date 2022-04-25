@@ -1,10 +1,7 @@
 package com.mycompany.quatro.graphics;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.EventObject;
-import javax.swing.Action;
 import javax.swing.JOptionPane;
 
 public class DashboardHome extends javax.swing.JFrame {
@@ -125,11 +122,6 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -281,14 +273,6 @@ public class DashboardHome extends javax.swing.JFrame {
         txtStart.setForeground(new java.awt.Color(255, 255, 255));
         txtStart.setText("Iniciar");
         txtStart.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txtStart.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtStartMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txtStartMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -422,6 +406,7 @@ public class DashboardHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtExitMouseClicked
+
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja fechar?", "Atenção", JOptionPane.YES_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
             System.exit(0);
@@ -430,24 +415,26 @@ public class DashboardHome extends javax.swing.JFrame {
     }//GEN-LAST:event_txtExitMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         try {
             try {
-                java.awt.Desktop.getDesktop().browse(new java.net.URI("file:///home/luiz.ekstein@VALEMOBI.CORP/Documentos/quatro/Site%20Institucional/public/index.html"));
+                java.awt.Desktop.getDesktop().browse(new java.net.URI(""));
             } catch (URISyntaxException error1) {
                 System.out.println(error1);
             }
         } catch (IOException error2) {
             System.out.println(error2);
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Atenção", JOptionPane.YES_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
             this.dispose();
             new Login().setVisible(true);
         }
-
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -516,10 +503,6 @@ public class DashboardHome extends javax.swing.JFrame {
         jLabel18.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        //
-    }//GEN-LAST:event_jButton5MouseClicked
-
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-play-rosa.png")));
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop.png")));
@@ -530,20 +513,8 @@ public class DashboardHome extends javax.swing.JFrame {
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop-rosa.png")));
     }//GEN-LAST:event_btnStopActionPerformed
 
-    private void txtStartMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStartMouseEntered
-
-    }//GEN-LAST:event_txtStartMouseEntered
-
-    private void txtStartMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStartMouseExited
-
-    }//GEN-LAST:event_txtStartMouseExited
-
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -560,10 +531,7 @@ public class DashboardHome extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DashboardHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
             }
