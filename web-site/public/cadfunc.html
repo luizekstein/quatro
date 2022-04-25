@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/nav_&_footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+  <div class="container-nav">
+    <header class="site-header">
+        <nav class="site-navigation">
+            <div class="site-identity">
+                <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./sobrenos.html">Sobre nós</a></li>
+                <li><a href="./plans.html">Planos</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>   
+    <div class="main">
+        <div class="container">
+            <h1>Cadastrar Funcionário</h1>
+            <h4>Adicione Funcionário responsável pelo monitoramento</h4>
+            <form action="#" name="cadastro" id="cadastro" onSubmit="cadastrar()">
+                <label for="in_cnpj">Nome</label>
+                <input id="in_cnpj" placeholder="Nome do funcionário" type="text">
+
+                <label for="in_email">Permissão</label>
+                <input id="in_email" placeholder="Nivel de persmissão do funcionário" type="text">
+
+
+                <label id="passWordConfirm" for="in_senha_confirm">Departamento</label>
+                <input id="in_senha_confirm" placeholder="Área de atuação" type="text">
+
+                <button type="submit">Adicionar</button>
+                <i><a href="./emprises.html" style="font-weight: bold;">Voltar</a> para as empresas</i>
+            </form>
+            <div id="div_aguardar" style="display: none;">
+              <img style="height: 30px;"
+                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="nav.js"></script>
+<script>
+  function limparFormulario() {
+    document.getElementById("cadastro").reset();
+  }
+
+  function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "block";
+}
+
+function finalizarAguardar() {
+  aguardar();
+  var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "none";
+}
+
+  function cadastrar() {
+    aguardar();
+    var email = in_email.value;
+    var cnpj = in_cnpj.value;
+    var senha = in_senha.value;
+    var confirmacaoSenha = in_senha_confirm.value;
+
+    if (email.trim() == "" || cnpj.trim() == "" || senha.trim() == "" || confirmacaoSenha.trim() == "") {
+       window.alert("Preencha todos os campos para prosseguir!");
+      if (email.trim() == "") {
+        console.log('email está em branco')
+      }
+
+      if (cnpj.trim() == "") {
+        console.log('cnpj está em branco');
+      }
+      if (senha.trim() == "") {
+        console.log('senha está em branco')
+      }
+      if (confirmacaoSenha.trim() == "") {
+        console.log('confirmacaoSenha está em branco')
+      }
+      finalizarAguardar();
+      return false;
+    } 
+    
+     if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+       window.alert("E-mail inválido! Verifique e tente novamente.");
+      return false;
+      finalizarAguardar();
+    }
+    
+    if (senha != confirmacaoSenha) {
+       window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+      finalizarAguardar();
+      return false;
+    } 
+
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cnpj: cnpj,
+        email: email,
+        senha: senha,
+      })
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+         window.alert("Cadastro realizado com sucesso!");
+        window.location = "./login.html";
+        limparFormulario();
+       finalizarAguardar();
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      finalizarAguardar();
+      return false;
+    });
+  }
+</script>

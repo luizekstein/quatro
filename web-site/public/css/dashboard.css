@@ -55,15 +55,14 @@ body{
   }
   .especifico{
       display: flex;
-      justify-content: space-around;
-      width: 35%;
+      justify-content: space-between;
+      width: 55%;
  
   }
   .alerts{
     display: flex;
     height: 15%;
     margin-left: 0.7%;
-   
     justify-content: space-between;
     width: 92.4%;
   }
@@ -91,7 +90,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 90vh;
+    height: 30vh;
     width: 20vw;
 }
 .card {
@@ -105,7 +104,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 16%;
+    height: 20%;
     border-radius: 10px;
 }
 .card img {
@@ -116,6 +115,62 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
-    height: 20vh;
+    background-color: var(--purple-dark);
+    width: 40%;
+    border-radius: 4px;
+    padding: 5%;
+    height: 10vh;
+}
+
+@media (max-width: 600px){
+    .complement{
+        display: flex;
+        align-items: center;
+        margin-right: 10%;
+        justify-content: center;
+        flex-direction: column;
+        background-color: var(--purple-dark);
+        width: 60%;
+        border-radius: 4px;
+        padding: 5%;
+        height: 10vh;
+    }
+    h3{
+        font-size: 10px;
+    }
+    h4{
+        font-size: 10px;
+    }
+    .numeros{
+        display: flex;
+        justify-content: space-between;
+        width:100%;
+      
+        padding-left: 0.8%;
+    }
+    .adjust{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 80%;
+    }
+    h2{
+        font-size: 12px;
+    }
+}
+@media (max-width: 800px){
+    h3{
+        font-size: 8px;
+    }
+    h4{
+        font-size: 8px;
+    }
+}
+@media(max-width: 1000px){
+    h3{
+        font-size: 14px;
+    }
+    h4{
+        font-size: 14px;
+    }
 }
