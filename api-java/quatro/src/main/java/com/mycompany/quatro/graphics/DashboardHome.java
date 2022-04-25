@@ -10,17 +10,19 @@ import java.util.TimerTask;
 import javax.swing.JOptionPane;
 
 public class DashboardHome extends javax.swing.JFrame {
-
+    
     private String name;
-
+    
     HardwareData hardware = new HardwareData();
+
     public DashboardHome(String name) {
         initComponents();
         this.name = name;
         jLabel17.setText("Welcome to Quatro, " + name);
+        txtOs.setText(hardware.getOperationalSystem());
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar-rosa.png")));
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -414,7 +416,7 @@ public class DashboardHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtExitMouseClicked
-
+        
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja fechar?", "Atenção", JOptionPane.YES_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
             System.exit(0);
@@ -423,7 +425,7 @@ public class DashboardHome extends javax.swing.JFrame {
     }//GEN-LAST:event_txtExitMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
         try {
             try {
                 java.awt.Desktop.getDesktop().browse(new java.net.URI(""));
@@ -437,7 +439,7 @@ public class DashboardHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Atenção", JOptionPane.YES_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
             this.dispose();
@@ -451,12 +453,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar-rosa.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png")));
-
+        
         jPanel4.setVisible(true);
         jPanel3.setVisible(true);
         jLabel17.setVisible(true);
         jLabel18.setVisible(true);
-
+        
         jLabel17.setText("Welcome to Quatro!");
         jLabel18.setText("Device specification");
 
@@ -467,12 +469,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home-rosa.png")));
-
+        
         jPanel4.setVisible(false);
         jPanel3.setVisible(false);
         jLabel17.setVisible(false);
         jLabel18.setVisible(false);
-
+        
         jLabel18.setText("EM DESENVOLVIMENTO...");
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 28));
         jLabel18.setVisible(true);
@@ -484,12 +486,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard-rosa.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png")));
-
+        
         jPanel4.setVisible(false);
         jPanel3.setVisible(false);
         jLabel17.setVisible(false);
         jLabel18.setVisible(false);
-
+        
         jLabel18.setText("EM DESENVOLVIMENTO...");
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 28));
         jLabel18.setVisible(true);
@@ -500,12 +502,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png")));
-
+        
         jPanel4.setVisible(false);
         jPanel3.setVisible(false);
         jLabel17.setVisible(false);
         jLabel18.setVisible(false);
-
+        
         jLabel18.setText("EM DESENVOLVIMENTO...");
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 28));
         jLabel18.setVisible(true);
@@ -514,7 +516,7 @@ public class DashboardHome extends javax.swing.JFrame {
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-play-rosa.png")));
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop.png")));
-
+        
         Main.main(null);
         // updating labels every 5 seconds
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -532,9 +534,9 @@ public class DashboardHome extends javax.swing.JFrame {
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop-rosa.png")));
         Main.stop();
     }//GEN-LAST:event_btnStopActionPerformed
-
+    
     public static void main(String args[]) {
-
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -551,7 +553,7 @@ public class DashboardHome extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DashboardHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
             }
