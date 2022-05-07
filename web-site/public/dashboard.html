@@ -8,6 +8,10 @@
     <link rel="shortcut icon" href="./css/imgs/icons/quatro_icone.ico" type="image/x-icon">
      <link rel="stylesheet" href="./css/sidebar.css">
    <link rel="stylesheet" href="./css/dashboard.css">
+   <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+   <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-heatmap.min.js"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -15,176 +19,431 @@
     <title>Dashboard QUATRO</title> 
 </head>
 <body>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">QUATRO</span>
+            </span>
             
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input style="background-color: transparent;" type="text" placeholder="Pesquisa...">
-                </li>
-
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="./index.html">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Início</span>
-                        </a>
-                    </li>
-
-                        <li class="nav-link">
-                        <a href="./emprises.html">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Minhas empresas</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">Analytics</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="./index.html">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Sair</span>
-                    </a>
-                </li>
-<!-- 
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
+            <div class="text logo-text">
+                <span class="name">QUATRO</span>
                 
             </div>
         </div>
+        
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
 
-    </nav>
-
-    <section class="home">
-        <div style="color: white; margin-left: 5.5%;" class="text">Dashboard</div>
-        <div class="general">
-            <div class="adjust">
-         <div class="numeros">
-               <div class="container">
-                 
-                 <div class="especifico">
-                 <div class="complement">
-                   <h3 style="color: white;">Máquina:</h3>
-                   <h4 style="color: white;">Servidor 1</h4>
-                 </div>
+    <div class="menu-bar">
+        <div class="menu">
             
-                 <div class="complement">
-                   <h3 style="color: white;">Localização</h3>
-                   <h4 style="color: white;">Brasil</h4>
-                 </div>
-               </div>
-               </div>
-             </div>
-           
-             <div class="dash">
-               <div class="graph">
-                 <canvas id="myChartLine"></canvas>
-               </div>
-             </div> 
-             <div class="alerts">
-               <div class="aviso">
-                 <h3 style="margin: 0;">Temperatura</h3>
-                 <h2  style="margin: 4%;">40º</h2>
-               </div>
-               <div class="aviso">
-                 <h3 style="margin: 0;">Velocidade média</h3>
-                 <h2 style="margin: 4%;">3,27 GHz</h2>
-               </div>
-             </div>
-             
-           </div>
-             <!-- <div class="dash">
-               <h1>RAM</h1>
-               <div class="graph">
-                 <canvas id="myChartLine2"></canvas>
-               </div>
-             </div>
-             <div class="dash">
-               <h1>Disco</h1>
-               <div class="graph">
-                 <canvas id="myChartLine3"></canvas>
-               </div> -->
-         <div class="options">
-           <h1 style="color: white;">Opções</h1>
-           <div class="card">
-             <h2>Alertas</h1>
-             <img src="./css/imgs/icons/semanal.png" alt="">
-           </div>
-           <div class="card">
-             <h2>Relatórios</h1>
-             <img src="./css/imgs/icons/mensal.png" alt="">
-           </div>
-          
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input style="background-color: transparent;" type="text" placeholder="Pesquisa...">
+            </li>
+            
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="./index.html">
+                        <i class='bx bx-home-alt icon' ></i>
+                        <span class="text nav-text">Início</span>
+                    </a>
+                </li>
+                
+                <li class="nav-link">
+                    <a href="./emprises.html">
+                        <i class='bx bx-bell icon'></i>
+                        <span class="text nav-text">Minhas empresas</span>
+                    </a>
+                </li>
+                
+                <li class="nav-link">
+                    <a href="./heatmap.html">
+                        <i class='bx bx-pie-chart-alt icon' ></i>
+                        <span class="text nav-text">Analytics</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
          
-         </div>
-             </div>
-         </div>
-    </section>
+        <div class="bottom-content">
+            <li class="">
+                <a href="./index.html">
+                    <i class='bx bx-log-out icon' ></i>
+                    <span class="text nav-text">Sair</span>
+                </a>
+            </li>
+        </div>
+    </div>
+    
+</nav>
+<div class="labels">
+    <div class="options">
+        <h3>Uso RAM <div class="small-alert" ></div></h3>
+        <span class="alert-span">3,4/6,9 GB (50%)</span>
+        <span>Servidor <i>Valemobi</i></span>
+    </div>
+    <div class="options">
+        <h3>Uso RAM <div class="small-alert" ></div></h3>
+        <span class="alert-span">3,4/6,9 GB (50%)</span>
+        <span>Servidor <i>Valemobi</i></span>
+    </div>
+    <div class="options">
+        <h3>Uso RAM <div class="small-alert" ></div></h3>
+        <span class="alert-span">3,4/6,9 GB (50%)</span>
+        <span>Servidor <i>Valemobi</i></span>
+    </div>
+    <div class="options">
+        <h3>Uso RAM <div class="small-alert" ></div></h3>
+        <span class="alert-span">3,4/6,9 GB (50%)</span>
+        <span>Servidor <i>Valemobi</i></span>
+    </div>
+</div>
+<div class="graph-row">
+<div class="graph">
+    <canvas id="myChartLine"></canvas>
+</div>
+<div id="heatmap"></div>
+</div>
+<div class="w-8/12 ml-36">
+    <div class="px-4 md:px-10 py-4 md:py-4 bg-gray-200 dark:bg-gray-700 rounded-tl-lg rounded-tr-lg">
+        <div class="sm:flex items-center justify-between">
+            <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 dark:text-white ">Empresas parceiras</p>
+            <div>
+                <a href="./cademprise.html" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+                    <p class="text-sm font-medium leading-none text-white">Adicionar Empresa</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white dark:bg-gray-900  shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
+        <table class="w-full whitespace-nowrap">
+     
+                <tr tabindex="0" class="focus:outline-none h-20 text-sm leading-none text-gray-800 dark:text-white  border-b border-t bg-white dark:bg-gray-800  hover:bg-gray-200 dark:hover:bg-gray-900  dark:hover:bg-gray-900    border-gray-100 dark:border-gray-700 ">
+                    <td class=" pl-4 cursor-pointer">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10">
+                                <img class="w-full h-full" src="data:image/jpeg;base64,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"alt="TradeMap" />
+                            </div>
+                            <div class="pl-4">
+                                <p class="font-medium">TradeMap</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="text-sm font-medium leading-none text-gray-800 dark:text-white ">18%</p>
+                        <div class="w-24 h-3 bg-neutral-400  rounded-full mt-2">
+                            <div class="w-6 h-3 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="font-medium">Serviços de investimento</p>
+                    </td>
+                    <td class="pl-20">
+                        <p class="font-medium">100 Visitas</p>
+                        <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  mt-2">No último mês</p>
+                    </td>
+                    <td class="px-7 2xl:px-0">
+                        <button onclick="dropdownFunction(this)" class="rounded-md focus:outline-none focus:ring-2 ml-7" role="button" aria-label="option">
+                           <img class="w-5" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg" alt="dropdown">
+                        </button>
+                        <div class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden">
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Editar</p>
+                            </div>
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Deletar</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr tabindex="0" class="focus:outline-none h-20 text-sm leading-none text-gray-800 dark:text-white  border-b border-t bg-white dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-900  dark:hover:bg-gray-900  dark:bg-gray-700  border-gray-100 dark:border-gray-700 ">
+                    <td class="pl-4 cursor-pointer">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10">
+                                <img class="w-full h-full" src="data:image/jpeg;base64,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" alt="Stefanini"/>
+                            </div>
+                            <div class="pl-4">
+                                <p class="font-medium">Stefanini</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="text-sm font-medium leading-none text-gray-800 dark:text-white ">28%</p>
+                        <div class="w-24 h-3 bg-neutral-400  rounded-full mt-2">
+                            <div class="w-8 h-3 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="font-medium">32/47</p>
+                    </td>
+                    <td class="pl-20">
+                        <p class="font-medium">100 Visitas</p>
+                        <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  mt-2">No último mês</p>
+                    </td>
+                    <td class="px-7 2xl:px-0">
+                        <button onclick="dropdownFunction(this)" class="focus:ring-2 rounded-md focus:outline-none ml-7" role="button" aria-label="options">
+                           <img class="w-5" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg" alt="dropdown">
+                        </button>
+                        <div class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden">
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Editar</p>
+                            </div>
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Deletar</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr tabindex="0" class="focus:outline-none h-20 text-sm leading-none text-gray-800 dark:text-white  border-b border-t bg-white dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-900    border-gray-100 dark:border-gray-700 ">
+                    <td class="pl-4 cursor-pointer">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10">
+                                <img class="w-full h-full" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAAAq1BMVEX////Q09QfKkRjsbz19vf4/PyMkqCazdSw2N7h4+PAw8dKU2fIy80/an2IjplgaHhVlKOxyc3e3+NGTmWXnKc8Rlzu7/F4fo00PVXS1NolN08tOVFep7MoNEsjLknLzdQxTmR6uMGTwMegprG6vcZaYnVSWm1KgJBlbX2ssLZYnKlPipo1VWpHeIqUmqQ8Y3YrQlmpydGBusPN3N+8zc9+usKws71udYV7gpHDqsVfAAAESUlEQVR4nO3ZbXuaMBQGYBvQzWJXFfGlVBBRa9u1nc7Z/v9ftiBvQbTmnICebjxfSnNhuCUxIaFW+0Kp65jUUQGwGgyROw2TbxWrYlUsIMuxjMXt8dwcz8Nz+74U1nj5ePV5rk/ezpsDNCWWNTthkmEFsnaBrGHrNEqOxTvCU1GsngxKlsXYpBCW3K0CsBh7UmcZkigIiz2rsuRVEJbgQrEseRWIxdoqrDFABWOxewXWdXmsOzxrAFEBWewGywI1IZgVNSOcJTmMYlk/cSwHpgKzwtsFZn2UzbpBsWQnHTTLwbBsoArO2rUilPVePusFwTr1MFoAa4JgQbsWgnUHZ0GHBwyL/TMs4Mzzn7OINiJRFtEBgupwuiyf9YBggX+K55mqiT7YABcYCNYLzYdm5BLjtVzWG5IFvF1QFnr5ChsjgKwX/GJfYmsSy1JY7MOa8XxbI6DlD4iVbAjitt3McljphjNyk1J+4w3AErbBsVu6juwmlzTLEd8a4DfAJWchWdabphXCYrZfHOtXYa8LeMYSE5EMa5J766P6hsx4PdHJTrGcycO+CchatQ/nyfO89XraOfgo1vpxPL7/2Dmc3wDW9wNfKxuvI9PdJNIslMWzpsnStD80WZo2pcnSNPAq9zwsTbHvl8XSVjRZah2sPJZSO5bI0jbBBVrmXqRWKGWytB0rN4tenLWmyQqakSLLo8niv0aSLI8mS2vRZE1psjSirNwSgwZrRZO1psnSKhYg9zRZRO8WURbRRiTKItqIHk3WlCZrQ5NF88HGo8nq0GTRXGJMabJoLl9XNFlXJFkbkqzdNiU5Vvg+gxrLu6LIilTEWMmLH1KsdFOeEmuTXoAOK/P+ggpr76UKDdZm/wIXZ3nTnOksrCpVqlSpUqVKlSpVqnzdbA3bNvzk334jynVc0m2I2e7KXKEk/azLqzIbQk16fOwLZ8mkGy9f3P0Cxuyw1llmmbPclfWEEjP6ZDMu8JOa+vFlrOQsadXYNB3+p5tjRdVKsoIPOpZp8z8/VFncM4ouPU5qDw/qc36Z9MwBGwqf68VnpRkztmvgJq+zqcbqM9YLjxqM1bOsQBKapVhu0ng6Y3M1lpvUrgu3vpaWDaRZ87RkER4WwUoisHi7zKVZNlvEh7xH6EqsftQfjrBsEOs2XxO2y/NerWdLRBZj75dhbfnPeZCBCSyfsdllWEH35Fm4SUHKCsar9MQcKzOOHWEdGHQls3Vyo7wRxAwKhY53Zhbv971x8LnHfGUz4awcaxSm+xnLjU4aDeGsIB9Jg/HK7CBDw82ccd6+FWcU/+q6+aHs7KzuKJld7OiyBbD0sFY8S5gxltG8jGVZzIoPG6qjvJ9OxiazlViD0BJkGFaFZ/HJeBw+ODSjaR/N4lUZ4RH/rg01VvALdGZ6TedVRV9WmuXGie437xBWt17T31naHdC/RDMZpKJncGlWbqAcJiVNadZfXUWiFl4AhJcAAAAASUVORK5CYII=" alt="Sptech" />
+                            </div>
+                            <div class="pl-4">
+                                <p class="font-medium">Sptech</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="text-sm font-medium leading-none text-gray-800 dark:text-white ">94%</p>
+                        <div class="w-24 h-3 bg-neutral-400  rounded-full mt-2">
+                            <div class="w-24 h-3 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="font-medium">Faculdade de tecnologia</p>
+                    </td>
+                    <td class="pl-20">
+                        <p class="font-medium">100 Visitas</p>
+                        <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  mt-2">No último mês</p>
+                    </td>
+                    <td class="px-7 2xl:px-0">
+                        <button onclick="dropdownFunction(this)" class="focus:ring-2 rounded-md focus:outline-none ml-7" role="button" aria-label="options">
+                           <img class="w-5" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg" alt="dropdown">
+                        </button>
+                        <div class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden">
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Editar</p>
+                            </div>
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Deletar</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr tabindex="0" class="focus:outline-none h-20 text-sm leading-none text-gray-800 dark:text-white  border-b border-t bg-white dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-900  dark:bg-gray-700  border-gray-100 dark:border-gray-700 ">
+                    <td class="pl-4 cursor-pointer">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10">
+                                <img class="w-full h-full" src="https://raw.githubusercontent.com/Lararegina/ProjetoMaze2.0/main/Maze/public/css/Images/maze/maze_logo.png?token=GHSAT0AAAAAABUKK57YYY5EA34R6H7HAVICYTWTUSQ" alt="Maze" />
+                            </div>
+                            <div class="pl-4">
+                                <p class="font-medium">Maze</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="text-sm font-medium leading-none text-gray-800 dark:text-white ">81%</p>
+                        <div class="w-24 h-3 bg-neutral-400  rounded-full mt-2">
+                            <div class="w-20 h-3 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="font-medium">Monitoramento de fluxo metrô</p>
+                    </td>
+                    <td class="pl-20">
+                        <p class="font-medium">100 Visitas</p>
+                        <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  mt-2">No último mês</p>
+                    </td>             
+                    <td class="px-7 2xl:px-0">
+                        <button onclick="dropdownFunction(this)" class="focus:ring-2 rounded-md focus:outline-none ml-7" role="button" aria-label="options">
+                           <img class="w-5" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg" alt="dropdown">
+                        </button>
+                        <div class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden">
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Editar</p>
+                            </div>
+                            <div tabindex="0" class="focus:outline-none focus:indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Deletar</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+          
+                            
+                <tr tabindex="0" class="focus:outline-none h-20 text-sm leading-none text-gray-800 dark:text-white  border-b border-t bg-white dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-900  dark:bg-gray-700  border-gray-100 dark:border-gray-700 ">
+                    <td class="pl-4 cursor-pointer">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10">
+                                <img class="w-full h-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects(6).png" alt="Website Development"/>
+                            </div>
+                            <div class="pl-4">
+                                <p class="font-medium">Website Development</p>
+                                <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  pt-2">Dickens - Pacocha</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="text-sm font-medium leading-none text-gray-800 dark:text-white ">58%</p>
+                        <div class="w-24 h-3 bg-neutral-400  rounded-full mt-2">
+                            <div class="w-16 h-3 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </td>
+                    <td class="pl-12">
+                        <p class="font-medium">32/47</p>
+                    </td>
+                    <td class="pl-20">
+                        <p class="font-medium">100 Visitas</p>
+                        <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  mt-2">No último mês</p>
+                    </td>
+         
+                  
+                    <td class="px-7 2xl:px-0">
+                        <button onclick="dropdownFunction(this)" class="focus:ring-2 rounded-md focus:outline-none ml-7" role="button" aria-label="options">
+                           <img class="w-5" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg" alt="dropdown">
+                        </button>
+                        <div class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden">
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Editar</p>
+                            </div>
+                            <div tabindex="0" class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
+                                <p>Deletar</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
 
-    <script>
-        const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    anychart.onDocumentReady(function () {
+
+  // Dados 
+  var data = [
+    { x: "Segunda", y: "TradeMap", heat: 0.676 },
+    { x: "Segunda", y: "Lorem2", heat: 0.691 },
+    { x: "Segunda", y: "Lorem3", heat: 0.735 },
+    { x: "Segunda", y: "Lorem4", heat: 0.900 },
+    { x: "Segunda", y: "Lorem5", heat: 0.900 },
+    { x: "Segunda", y: "Lorem6", heat: 0.498 },
+    { x: "Terça", y: "TradeMap", heat: 0.700 },
+    { x: "Terça", y: "Lorem2", heat: 0.900 },
+    { x: "Terça", y: "Lorem3", heat: 0.744 },
+    { x: "Terça", y: "Lorem4", heat: 0.900},
+    { x: "Terça", y: "Lorem5", heat: 0.593 },
+    { x: "Terça", y: "Lorem6", heat: 0.505 },
+    { x: "Quarta", y: "TradeMap", heat: 0.687 },
+    { x: "Quarta", y: "Lorem2", heat: 0.707 },
+    { x: "Quarta", y: "Lorem3", heat: 0.750 },
+    { x: "Quarta", y: "Lorem4", heat: 0.740 },
+    { x: "Quarta", y: "Lorem5", heat: 0.601 },
+    { x: "Quarta", y: "Lorem6", heat: 0.512 },
+    { x: "Quinta", y: "TradeMap", heat: 0.688 },
+    { x: "Quinta", y: "Lorem2", heat: 0.900 },
+    { x: "Quinta", y: "Lorem3", heat: 0.900 },
+    { x: "Quinta", y: "Lorem4", heat: 0.748 },
+    { x: "Quinta", y: "Lorem5", heat: 0.607 },
+    { x: "Quinta", y: "Lorem6", heat: 0.900 },
+    { x: "Sexta", y: "TradeMap", heat: 0.691 },
+    { x: "Sexta", y: "Lorem2", heat: 0.721 },
+    { x: "Sexta", y: "Lorem3", heat: 0.766 },
+    { x: "Sexta", y: "Lorem4", heat: 0.752 },
+    { x: "Sexta", y: "Lorem5", heat: 0.617 },
+    { x: "Sexta", y: "Lorem6", heat: 0.527 },
+    { x: "Sábado", y: "TradeMap", heat: 0.695 },
+    { x: "Sábado", y: "Lorem2", heat: 0.727 },
+    { x: "Sábado", y: "Lorem3", heat: 0.770 },
+    { x: "Sábado", y: "Lorem4", heat: 0.900 },
+    { x: "Sábado", y: "Lorem5", heat: 0.624 },
+    { x: "Sábado", y: "Lorem6", heat: 0.532 },
+    { x: "Domingo", y: "TradeMap", heat: 0.699 },
+    { x: "Domingo", y: "Lorem2", heat: 0.733 },
+    { x: "Domingo", y: "Lorem3", heat: 0.900 },
+    { x: "Domingo", y: "Lorem4", heat: 0.756 },
+    { x: "Domingo", y: "Lorem5", heat: 0.634 },
+    { x: "Domingo", y: "Lorem6", heat: 0.535 },
+  ];        
+        
+  // Cria o gráfico e poe os dados
+  chart = anychart.heatMap(data);
+        
+  // Titulo do gráfico
+  chart.title("Acessos ultima semana");
+        
+  // Cria e configura as cores de acordo com os valores
+  var customColorScale = anychart.scales.ordinalColor();
+  customColorScale.ranges([
+    { less: 0.549, name: 'Baixo: <= 0.549', color: '#C0392B' },
+    { from: 0.550, to: 0.699, name: 'Médio: 0.55 - 0.699', color: '#F39C12' },
+    { from: 0.700, to: 0.799, name: 'Alto: 0.7 - 0.799', color: '#F1C40F' },
+    { greater: 0.800, name: 'Muito alto: >=0.8', color: '#27AE60' }
+  ]);
+  
+  // Seta as cores para cada intervalo do menor para o maior
+  customColorScale.colors(["#C0392B", "#F39C12", "#F1C40F", "#27AE60"]);
+        
+  // set the color scale as the color scale of the chart
+  chart.colorScale(customColorScale);
+  
+  // Ativiar ou desativar legenda
+  chart.legend(true);
+
+  // ativa/desativa números nos quadrados
+  chart.labels().enabled(false)
+
+  // Pega o id da div
+  chart.container("heatmap");
+        
+  // Desenha o gráfico
+  chart.draw();
+        
+});
+</script>
+<script>
+    const body = document.querySelector('body'),
+  sidebar = body.querySelector('nav'),
+  toggle = body.querySelector(".toggle"),
+  searchBtn = body.querySelector(".search-box"),
+  modeSwitch = body.querySelector(".toggle-switch"),
+  modeText = body.querySelector(".mode-text");
 
 
 toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
+sidebar.classList.toggle("close");
 })
 
 searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
+sidebar.classList.remove("close");
 })
 
 modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
+body.classList.toggle("dark");
+
+if(body.classList.contains("dark")){
+    modeText.innerText = "Light mode";
+}else{
+    modeText.innerText = "Dark mode";
     
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
-        
-    }
+}
 });
-
-    </script>
-
-</body>
-</html>
+function dropdownFunction(element) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                let list = element.parentElement.parentElement.getElementsByClassName("dropdown-content")[0];
+                list.classList.add("target");
+                for (i = 0; i < dropdowns.length; i++) {
+                    if (!dropdowns[i].classList.contains("target")) {
+                        dropdowns[i].classList.add("hidden");
+                    }
+                }
+                list.classList.toggle("hidden");
+            }
+</script>
 <script src="./dash.js"></script>
