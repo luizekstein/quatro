@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
+        btnMinimizar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,7 +73,7 @@ public class Login extends javax.swing.JFrame {
         painelEsquerdaLayout.setHorizontalGroup(
             painelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelEsquerdaLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(txtTituloQuatro)
                 .addGap(17, 17, 17))
             .addGroup(painelEsquerdaLayout.createSequentialGroup()
@@ -91,6 +92,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         painelDireita.setBackground(new java.awt.Color(253, 96, 175));
+        painelDireita.setPreferredSize(new java.awt.Dimension(250, 450));
 
         txtUsername.setBackground(new java.awt.Color(253, 96, 175));
         txtUsername.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -253,6 +255,24 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 25, Short.MAX_VALUE)
         );
 
+        btnMinimizar.setBackground(new java.awt.Color(253, 96, 175));
+        btnMinimizar.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnMinimizar.setForeground(new java.awt.Color(33, 30, 31));
+        btnMinimizar.setText("-");
+        btnMinimizar.setBorder(null);
+        btnMinimizar.setContentAreaFilled(false);
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setDefaultCapable(false);
+        btnMinimizar.setFocusPainted(false);
+        btnMinimizar.setFocusable(false);
+        btnMinimizar.setMargin(new java.awt.Insets(3, 20, 2, 14));
+        btnMinimizar.setPreferredSize(new java.awt.Dimension(10, 24));
+        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinimizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelDireitaLayout = new javax.swing.GroupLayout(painelDireita);
         painelDireita.setLayout(painelDireitaLayout);
         painelDireitaLayout.setHorizontalGroup(
@@ -285,22 +305,26 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(painelRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(30, 30, 30)
                                     .addComponent(painelEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDireitaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(painelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDireitaLayout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(84, 84, 84))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDireitaLayout.createSequentialGroup()
+                        .addComponent(btnMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
                         .addComponent(txtX)
-                        .addGap(15, 15, 15))))
+                        .addGap(3, 3, 3))))
         );
         painelDireitaLayout.setVerticalGroup(
             painelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelDireitaLayout.createSequentialGroup()
-                .addComponent(txtX)
-                .addGap(46, 46, 46)
+                .addGroup(painelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtX))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(painelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelDireitaLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -338,20 +362,19 @@ public class Login extends javax.swing.JFrame {
             .addGroup(painelFundoLayout.createSequentialGroup()
                 .addComponent(painelEsquerda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(painelDireita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addComponent(painelDireita, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         painelFundoLayout.setVerticalGroup(
             painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painelEsquerda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(painelDireita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(painelDireita, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(painelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,8 +428,8 @@ public class Login extends javax.swing.JFrame {
         List<User> UsersList = mssql.getMssql().query("select * from [dbo].[user];", new BeanPropertyRowMapper<>(User.class));
         Boolean userFind = false;
 
-        for (User user: UsersList) {
-            if(txtUsername.getText().equals(user.getLogin()) && txtPassword.getText().equals(user.getPassword())) {
+        for (User user : UsersList) {
+            if (txtUsername.getText().equals(user.getLogin()) && txtPassword.getText().equals(user.getPassword())) {
                 JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
                 this.dispose();
                 new DashboardHome(user.getName()).setVisible(true);
@@ -414,10 +437,10 @@ public class Login extends javax.swing.JFrame {
             }
         }
 
-        if(userFind == false) {
-                JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.");
-                txtUsername.setText("");
-                txtPassword.setText("********");
+        if (userFind == false) {
+            JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.");
+            txtUsername.setText("");
+            txtPassword.setText("********");
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -453,6 +476,10 @@ public class Login extends javax.swing.JFrame {
         txtUsername.addFocusListener((FocusListener) this);
     }//GEN-LAST:event_txtUsernameActionPerformed
 
+    private void btnMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizarActionPerformed
+        setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_btnMinimizarActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -479,6 +506,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnMinimizar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
