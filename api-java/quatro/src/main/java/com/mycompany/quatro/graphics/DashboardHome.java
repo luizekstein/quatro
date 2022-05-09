@@ -10,9 +10,9 @@ import java.util.TimerTask;
 import javax.swing.JOptionPane;
 
 public class DashboardHome extends javax.swing.JFrame {
-    
+
     private String name;
-    
+
     HardwareData hardware = new HardwareData();
 
     public DashboardHome(String name) {
@@ -22,7 +22,7 @@ public class DashboardHome extends javax.swing.JFrame {
         txtOs.setText(hardware.getOperationalSystem());
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar-rosa.png")));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -58,6 +58,7 @@ public class DashboardHome extends javax.swing.JFrame {
         txtStart = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
 
         jLabel14.setText("jLabel14");
 
@@ -191,7 +192,7 @@ public class DashboardHome extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addGap(50, 50, 50)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
@@ -222,12 +223,12 @@ public class DashboardHome extends javax.swing.JFrame {
         txtOs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtOs.setForeground(new java.awt.Color(255, 255, 255));
         txtOs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtOs.setText(hardware.getOperationalSystem());
+        txtOs.setText("jLabel4");
 
         txtCpu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtCpu.setForeground(new java.awt.Color(255, 255, 255));
         txtCpu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtCpu.setText(hardware.getProcessorUsage());
+        txtCpu.setText("jLabel3");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -247,12 +248,12 @@ public class DashboardHome extends javax.swing.JFrame {
         labelRam.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         labelRam.setForeground(new java.awt.Color(255, 255, 255));
         labelRam.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelRam.setText(hardware.getRamUsage());
+        labelRam.setText("jLabel1");
 
         txtHd.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtHd.setForeground(new java.awt.Color(255, 255, 255));
         txtHd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtHd.setText(hardware.getDiskUsage());
+        txtHd.setText("jLabel2");
 
         txtStop.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtStop.setForeground(new java.awt.Color(255, 255, 255));
@@ -370,6 +371,21 @@ public class DashboardHome extends javax.swing.JFrame {
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Device specification");
 
+        jButton7.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(33, 30, 31));
+        jButton7.setText("-");
+        jButton7.setBorder(null);
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.setFocusPainted(false);
+        jButton7.setFocusable(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -378,26 +394,31 @@ public class DashboardHome extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(150, 150, 150))))
+                        .addGap(132, 132, 132))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton7)
+                        .addGap(6, 6, 6)))
+                .addComponent(txtExit, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(txtExit)
-                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtExit)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 90, Short.MAX_VALUE))
+                .addGap(0, 107, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -416,7 +437,7 @@ public class DashboardHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtExitMouseClicked
-        
+
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja fechar?", "Atenção", JOptionPane.YES_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
             System.exit(0);
@@ -425,7 +446,7 @@ public class DashboardHome extends javax.swing.JFrame {
     }//GEN-LAST:event_txtExitMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         try {
             try {
                 java.awt.Desktop.getDesktop().browse(new java.net.URI(""));
@@ -439,7 +460,7 @@ public class DashboardHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Atenção", JOptionPane.YES_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
             this.dispose();
@@ -453,12 +474,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar-rosa.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png")));
-        
+
         jPanel4.setVisible(true);
         jPanel3.setVisible(true);
         jLabel17.setVisible(true);
         jLabel18.setVisible(true);
-        
+
         jLabel17.setText("Welcome to Quatro!");
         jLabel18.setText("Device specification");
 
@@ -469,12 +490,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home-rosa.png")));
-        
+
         jPanel4.setVisible(false);
         jPanel3.setVisible(false);
         jLabel17.setVisible(false);
         jLabel18.setVisible(false);
-        
+
         jLabel18.setText("EM DESENVOLVIMENTO...");
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 28));
         jLabel18.setVisible(true);
@@ -486,12 +507,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard-rosa.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png")));
-        
+
         jPanel4.setVisible(false);
         jPanel3.setVisible(false);
         jLabel17.setVisible(false);
         jLabel18.setVisible(false);
-        
+
         jLabel18.setText("EM DESENVOLVIMENTO...");
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 28));
         jLabel18.setVisible(true);
@@ -502,12 +523,12 @@ public class DashboardHome extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png")));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar.png")));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png")));
-        
+
         jPanel4.setVisible(false);
         jPanel3.setVisible(false);
         jLabel17.setVisible(false);
         jLabel18.setVisible(false);
-        
+
         jLabel18.setText("EM DESENVOLVIMENTO...");
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 28));
         jLabel18.setVisible(true);
@@ -516,7 +537,7 @@ public class DashboardHome extends javax.swing.JFrame {
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-play-rosa.png")));
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop.png")));
-        
+
         Main.main(null);
         // updating labels every 5 seconds
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -534,9 +555,13 @@ public class DashboardHome extends javax.swing.JFrame {
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop-rosa.png")));
         Main.stop();
     }//GEN-LAST:event_btnStopActionPerformed
-    
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -553,7 +578,7 @@ public class DashboardHome extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DashboardHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
             }
@@ -569,6 +594,7 @@ public class DashboardHome extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
