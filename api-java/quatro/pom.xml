@@ -76,6 +76,11 @@
             <version>7.2.2.jre8</version>
             <!--  ou versão 7.2.2.jre11, se sua JDK for a 11  -->
         </dependency>
+         <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
     </dependencies>
 
 </project>
