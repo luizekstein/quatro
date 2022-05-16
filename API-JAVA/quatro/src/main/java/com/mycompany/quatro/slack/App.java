@@ -10,7 +10,7 @@ public class App {
         
         JSONObject json = new JSONObject();
         
-        json.put("text", "Fácil né? :shrug:");
+        json.put("text", "Boa tarde Kauã, como posso te ajudar? :shrug:");
         
         Slack.sendMessage(json);
     }
