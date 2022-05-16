@@ -1,7 +1,8 @@
 package com.mycompany.quatro.graphics;
 
 import com.mycompany.quatro.measurement.HardwareData;
-import com.mycompany.quatro.measurement.Main;
+import com.mycompany.quatro.measurement.Measurement;
+import org.springframework.cglib.core.MethodWrapper;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -13,13 +14,14 @@ public class DashboardHome extends javax.swing.JFrame {
 
     private String name;
 
-    HardwareData hardware = new HardwareData();
+    Measurement measurement = new Measurement();
+
 
     public DashboardHome(String name) {
         initComponents();
         this.name = name;
         jLabel17.setText("Welcome to Quatro, " + name);
-        txtOs.setText(hardware.getOperationalSystem());
+        txtOs.setText(measurement.getHardware().getOperationalSystem());
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-ligar-desligar-rosa.png")));
     }
 
@@ -223,12 +225,12 @@ public class DashboardHome extends javax.swing.JFrame {
         txtOs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtOs.setForeground(new java.awt.Color(255, 255, 255));
         txtOs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtOs.setText("jLabel4");
+        txtOs.setText(measurement.getHardware().getOperationalSystem());
 
         txtCpu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtCpu.setForeground(new java.awt.Color(255, 255, 255));
         txtCpu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtCpu.setText("jLabel3");
+        txtCpu.setText(measurement.getHardware().getProcessorUsage());
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,12 +250,12 @@ public class DashboardHome extends javax.swing.JFrame {
         labelRam.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         labelRam.setForeground(new java.awt.Color(255, 255, 255));
         labelRam.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelRam.setText("jLabel1");
+        labelRam.setText(measurement.getHardware().getRamUsage());
 
         txtHd.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtHd.setForeground(new java.awt.Color(255, 255, 255));
         txtHd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtHd.setText("jLabel2");
+        txtHd.setText(measurement.getHardware().getDiskUsage());
 
         txtStop.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtStop.setForeground(new java.awt.Color(255, 255, 255));
@@ -275,7 +277,11 @@ public class DashboardHome extends javax.swing.JFrame {
         btnStop.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnStop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopActionPerformed(evt);
+                try {
+                    btnStopActionPerformed(evt);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -534,26 +540,25 @@ public class DashboardHome extends javax.swing.JFrame {
         jLabel18.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    Timer timer = new Timer();
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-play-rosa.png")));
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop.png")));
-
-        Main.main(null);
+        timer = new Timer();
         // updating labels every 5 seconds
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                txtCpu.setText(Main.hardware.getProcessorUsage());
-                labelRam.setText(Main.hardware.getRamUsage());
-                txtHd.setText(Main.hardware.getDiskUsage());
-            }
-        }, 0, 5000);
+       timer.schedule(new TimerTask() {
+           @Override
+           public void run() {
+                measurement.run();
+           }
+       }, 0, 5000);
     }//GEN-LAST:event_btnPlayActionPerformed
 
-    private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
+    private void btnStopActionPerformed(java.awt.event.ActionEvent evt) throws InterruptedException {//GEN-FIRST:event_btnStopActionPerformed
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-play.png")));
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao-stop-rosa.png")));
-        Main.stop();
+        timer.cancel();
+        System.out.println("Aplicação pausada...");
     }//GEN-LAST:event_btnStopActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

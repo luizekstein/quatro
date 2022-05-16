@@ -428,14 +428,15 @@ public class Login extends javax.swing.JFrame {
         List<User> UsersList = mssql.getMssql().query("select * from [dbo].[user];", new BeanPropertyRowMapper<>(User.class));
         Boolean userFind = false;
 
-        for (User user : UsersList) {
-            if (txtUsername.getText().equals(user.getLogin()) && txtPassword.getText().equals(user.getPassword())) {
-                JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
-                this.dispose();
-                new DashboardHome(user.getName()).setVisible(true);
-                userFind = true;
+            for (User user: UsersList) {
+                if(txtUsername.getText().equals(user.getEmail()) && txtPassword.getText().equals(user.getPassword())) {
+                    JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
+                    this.dispose();
+                    new DashboardHome(user.getName()).setVisible(true);
+                    userFind = true;
+                }
             }
-        }
+
 
         if (userFind == false) {
             JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.");

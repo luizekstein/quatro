@@ -14,12 +14,8 @@ public class HardwareData {
     FileSystem fileSystem = operatingSystem.getFileSystem();
     List<OSFileStore> osFileStores = fileSystem.getFileStores();
     Looca looca = new Looca();
-
-
     private Double processorUsage;
-
     private Long diskUsage;
-
     private Long ramUsage;
 
     public HardwareData() {

@@ -3,9 +3,10 @@ package com.mycompany.quatro.login;
 public class User {
     private Integer id;
     private String name;
-    private String login;
+
+    private String email;
     private String password;
-    private String permission;
+
     private Integer fkClient;
 
     public Integer getId() {
@@ -24,12 +25,12 @@ public class User {
         this.name = name;
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -38,14 +39,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPermission() {
-        return permission;
-    }
-
-    public void setPermission(String permission) {
-        this.permission = permission;
     }
 
     public Integer getFkClient() {
@@ -61,9 +54,8 @@ public class User {
         final StringBuilder sb = new StringBuilder("User{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
-        sb.append(", login='").append(login).append('\'');
+        sb.append(", email='").append(email).append('\'');
         sb.append(", password='").append(password).append('\'');
-        sb.append(", permission='").append(permission).append('\'');
         sb.append(", fkClient=").append(fkClient);
         sb.append('}');
         return sb.toString();
