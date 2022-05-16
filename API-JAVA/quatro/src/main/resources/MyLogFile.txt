@@ -1,0 +1,4 @@
+mai 16, 2022 8:16:41 PM com.mycompany.quatro.log.Logs main
+INFO: Log to test
+mai 16, 2022 8:16:41 PM com.mycompany.quatro.log.Logs main
+INFO: Alerta: Queda do Servidor dsbin/720
