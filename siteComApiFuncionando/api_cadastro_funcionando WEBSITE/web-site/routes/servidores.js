@@ -11,7 +11,7 @@ router.post('/autenticar', function(req, res, next) {
 	var id = id_client; // depois de .body, use o nome (name) do campo em seu formulário de login
 	var ip = req.body.n_ip; // depois de .body, use o nome (name) do campo em seu formulário de login	
 	
-	let instrucaoSql = `select * from db_server where ip='${ip}' and fk_client='${id}'`;
+	let instrucaoSql = `select * from dbo_server where ip='${ip}' and fk_client='${id}'`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {
