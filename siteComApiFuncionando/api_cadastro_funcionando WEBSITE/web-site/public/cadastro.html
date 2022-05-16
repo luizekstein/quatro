@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/nav_&_footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./js/funcoes.js"></script>
+    <title>Cadastro</title>
+</head>
+<body>
+  <div class="container-nav">
+    <header class="site-header">
+        <nav class="site-navigation">
+            <div class="site-identity">
+                <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./sobrenos.html">Sobre nós</a></li>
+                <li><a href="./plans.html">Planos</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>   
+    <div class="main">
+        <div class="container">
+            <h1>Cadastro</h1>
+            <h4>Cria sua conta na <span>Quatro!</span></h4>
+            <form id="form_cadastro" name="cadastro" onsubmit="return cadastrar()">
+              <label for="in_nome">Nome</label>
+              <input id="in_nome" name="n_nome" placeholder="Nome" type="text">
+
+              <label for="in_negocio">Negócio</label>
+              <input id="in_negocio" name="n_negocio" placeholder="Negócio" type="text">
+
+              <label for="in_cnpj">CNPJ</label>
+              <input id="in_cnpj" name="n_cnpj" placeholder="Apenas números" type="number">
+              
+              <label for="in_plano">Plano</label>              
+
+              <select name="" id="sl_plano" onchange="selecaoPlano()">
+                <option value= "undefined"> Selecione</option>
+                <option value="startup">Start-Up</option>
+                <option value="profissional">Profissional</option>
+                <option value="media">Media</option>
+              </select>
+
+              <input id="in_plano" name="n_plano" type="text" style="display: none;">
+
+              <label for="in_senha">Senha</label>
+              <input id="in_senha" name="n_senha" placeholder="*******" type="password">
+
+              <label id="passWordConfirm" for="in_senha_confirm"> Confirmar Senha</label>
+              <input id="in_senha_confirm" placeholder="*******" type="password">
+
+                <button type="submit">Criar conta</button>
+                <i>Já possui conta? <a href="./login.html" style="font-weight: bold;">Entrar</a></i>
+            </form>
+            <div id="div_aguardar" style="display: none;">
+              <img style="height: 30px;"
+                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="nav.js"></script>
+<script>
+  // pegando o plano pela a pagina plano
+  function selecaoPlano(){
+  in_plano.value = sl_plano.value;
+}
+
+function selectMedia(a){
+  const selectElement = document.querySelector("#sl_plano");
+  selectElement.value = a;
+  in_plano.value = sessionStorage.plano;
+}
+
+window.onload(selectMedia(sessionStorage.plano));
+
+  function limparFormulario() {
+    document.getElementsByTagName("cadastro").reset();
+  }
+
+  function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "block";
+}
+
+function finalizarAguardar() {
+  aguardar();
+  var divAguardar = document.getElementById("div_aguardar");
+    divAguardar.style.display = "none";
+}
+
+  function cadastrar() {
+    aguardar();
+
+    //validações
+    var nome = in_nome.value;
+    var cnpj = in_cnpj.value;
+    var negocio = in_negocio.value;
+    var plano = sl_plano.value;
+    var senha = in_senha.value;
+    var confirmacaoSenha = in_senha_confirm.value;
+    
+    if (nome.trim() == "" || cnpj.trim() == ""||  negocio.trim() == "" || plano.trim() == "undefined" || senha.trim() == "" || confirmacaoSenha.trim() == "") {
+       window.alert("Preencha todos os campos/selecione para prosseguir!");
+       limparFormulario();
+      if (nome.trim() == "") {
+        console.log('nome está em branco');
+        limparFormulario();
+      }
+
+      if (cnpj.trim() == "") {
+        console.log('cnpj está em branco');
+        limparFormulario();
+      }
+      if (negocio.trim() == "") {
+        console.log('Negócio está em branco')
+        limparFormulario();
+      }
+      if (senha.trim() == "") {
+        console.log('senha está em branco')
+        limparFormulario();
+      }
+      if (confirmacaoSenha.trim() == "") {
+        console.log('Confirmar senha está em branco')
+        limparFormulario();
+      }
+      if (sl_plano.value == "undefined"){
+        console.log("Selecione um plano")
+        limparFormulario();
+      }
+      finalizarAguardar();
+      return false;
+    } 
+    
+    if (senha != confirmacaoSenha) {
+       window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+      finalizarAguardar();
+      limparFormulario();
+      return false;
+    } 
+
+    var formulario = new URLSearchParams(new FormData(form_cadastro));
+    fetch("/clientes/cadastrar", {
+        method: "POST",
+        body: formulario
+    }).then(function (response) {
+        if (response.ok) {
+          window.location.href = 'login.html';
+        } else {
+
+            console.log('Erro de cadastro!');
+            response.text().then(function (resposta) {
+                div_erro.innerHTML = resposta;
+            });
+        }
+    });
+
+    return false;
+  }
+</script>

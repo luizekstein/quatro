@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/plans.css">
+    <link rel="stylesheet" href="./css/nav_&_footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./js/funcoes.js"></script>
+    <title>Planos</title>
+</head>
+<body>
+    <div class="container-nav">
+        <header class="site-header">
+            <nav class="site-navigation">
+                <div class="site-identity">
+                    <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>
+                </div>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./sobrenos.html">Sobre nós</a></li>
+                    <li><a href="./plans.html">Planos</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./cadastro.html">Cadastro</a></li>
+                    <li><a href="./login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="main">
+        <div class="plans-container">
+            <div class="plan">
+                <div class="emphasis">
+                    <h1>Start-up</h1>
+                </div>
+                <h1>R$10,00<span>/Mês</span></h1>
+                <h3>Dashboard</h3>
+                <h3>Alertas</h3>
+                <div id="startup" class="button" onclick="botaoPlano(this.id), redCadastro()">
+                    <h2>Assinar</h2>
+                </div>
+
+            </div>
+            <div class="plan-main">
+                <div class="emphasis">
+                    <h1>Profissional</h1>
+                </div>
+                <h1>R$49,10<span>/Mês</span></h1>
+                <h3>Dashboard</h3>
+                <h3>Alertas</h3>
+                <h3>Mapa de calor</h3>
+                <h3>Cadastro de funcionários</h3>
+                <div id="profissional" class="button" onclick="botaoPlano(this.id), redCadastro()">
+                    <h2>Assinar</h2>
+                </div>
+            </div>
+            <div class="plan">
+                <div class="emphasis">
+                    <h1>Média</h1>
+                </div>
+                    <h1>R$30,00<span>/Mês</span></h1>
+                    <h3>Dashboard</h3>
+                    <h3>Alertas</h3>
+                    <h3>Mapa de calor</h3>
+                    
+                <div id="media" class="button" onclick="botaoPlano(this.id), redCadastro()">
+                    <h2>Assinar</h2>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
+<script src="nav.js"></script>
