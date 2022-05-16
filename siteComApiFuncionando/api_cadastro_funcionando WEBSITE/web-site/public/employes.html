@@ -139,10 +139,11 @@
 
         </div>
     </div>
+	<!-- Modal adicionar usuario -->
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form id="form_cadastro" name="cadastro" onsubmit="return cadastrar()">
 					<div class="modal-header">						
 						<h4 class="modal-title">Adicionar Funcionário</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -150,12 +151,16 @@
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Nome</label>
-							<input type="text" class="form-control" required>
+							<input type="text" id="in_nome" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" class="form-control" required>
-						</div>				
+							<input type="email" id="in_email" class="form-control" required>
+						</div>	
+						<div class="form-group">
+							<label>Senha</label>
+							<input type="senha" id="in_senha" class="form-control" required>
+						</div>			
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -165,6 +170,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal Editar -->
 	<div id="editEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -212,6 +218,10 @@
 			</div>
 		</div>
 	</div>
+	<div id="div_aguardar" style="display: none;">
+		<img style="height: 30px;"
+		  src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+	  </div>
 </body>
 </html>
 <script>
@@ -264,4 +274,50 @@ if(body.classList.contains("dark")){
   
 }
 });
+
+ function aguardar() {
+   var divAguardar = document.getElementById("div_aguardar");
+   divAguardar.style.display = "block";
+}
+
+function finalizarAguardar() {
+ aguardar();
+ var divAguardar = document.getElementById("div_aguardar");
+   divAguardar.style.display = "none";
+}
+
+// Pegando o ID do cliente para inserir nos usuarios
+var idClient = sessionStorage.cliente_id;
+
+console.log("Id do Cliente:" + idClient);
+
+window.onload = pegar(idClient)
+
+function pegar(idClient){
+ fetch(`/usuarios/fk/${idClient}`, { cache: 'no-store' }).then(function (response) {
+ })
+}
+ function cadastrar() {
+   aguardar();
+
+   var formulario = new URLSearchParams(new FormData(form_cadastro));
+   fetch("/usuarios/cadastrar", {
+	   method: "POST",
+	   body: formulario
+   }).then(function (response) {
+	   if (response.ok) {
+		 console.log("Funcionário cadastrado com sucesso!")
+		 window.location.href = 'emprises.html';
+	   } else {
+
+		   console.log('Erro de cadastro!');
+		   response.text().then(function (resposta) {
+			   div_erro.innerHTML = resposta;
+		   });
+	   }
+   });
+
+   return false;
+ }
+
 </script>
