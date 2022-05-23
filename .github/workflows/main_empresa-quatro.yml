@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'empresa-quatro'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2C1E1D355234CC9833E658976B4CB3B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C7D7E75B2C474DC7B7BB08A2E8DF329A }}
           package: .

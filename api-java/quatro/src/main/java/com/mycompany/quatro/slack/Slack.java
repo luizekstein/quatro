@@ -1,5 +1,6 @@
 package com.mycompany.quatro.slack;
 
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -22,5 +23,6 @@ public class Slack {
          
           System.out.println(String.format("Status: %s", response.statusCode()));
         System.out.println(String.format("Response: %s", response.body()));
+        
     }
 }
