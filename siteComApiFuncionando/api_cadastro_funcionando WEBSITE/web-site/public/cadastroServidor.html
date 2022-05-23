@@ -2,7 +2,7 @@
     <html lang="pt">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="./css/cadastro.css">
+        <link rel="stylesheet" href="./css/login.css">
         <link rel="stylesheet" href="./css/nav_&_footer.css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,7 @@
                     <div class="line3"></div>
                 </div>
                 <ul class="nav-links">
+                    <li><a href="./sobrenos.html">Sobre nós</a></li>
                     <li><a href="./plans.html">Planos</a></li>
                     <li><a href="./dashboard.html">Dashboard</a></li>
                     <li><a href="./cadastro.html">Cadastro</a></li>
@@ -29,36 +30,29 @@
             </nav>
         </header>
     </div>
-    <div class="main">
-        <div class="container2">
-            <div class="text">
-				<h1>Cadastro</h1>
-				<h4>Cadastre uma empresa que pertence a sua!</h4>
-			</div>
-            <form id="form_cadastro_server" name="cadastro" onsubmit="return cadastrar()">
-				
-				<div class="row">
-					<input class="input-row" id="id_nome" name="n_nome" placeholder="Nome" type="text">
-					<input class="input-row" id="in_negocio" name="n_negocio" placeholder="Negócio" type="text">
-				</div>
+        <div class="main">
+            <div class="container">
+                <h1>Cadastrar Servidor</h1>
+                <h4>Nos de informações sobre o servidor que deseja monitorar</h4>
+                <form action="#" name="cadastro" id="form_cadastro_server" onsubmit="cadastrar()">
+                    <label for="">Hostname</label>
+                    <input id="in_hostname" name="n_hostname" placeholder="Nome da máquina" type="text">
+    
+                    <label for="">Sistema Operacional</label>
+                    <input id="in_so" name="n_so" placeholder="Sistema Operacional da Máquina" type="text">
 
-              <div class="row">
-              <input class="input-row-func" id="in_cnpj" name="n_cnpj" placeholder="CNPJ" type="number">
-			</div>
-	<input id="in_senha" name="n_senha" placeholder="Senha" type="password">
-
-	<input id="in_senha_confirm" placeholder="Confirmar senha" type="password">
-              
-
-                <button type="submit">Criar conta</button>
-            </form>
-			<i>Já possui conta? <a href="./login.html" style="font-weight: bold;">Entrar</a></i>
-            <div id="div_aguardar" style="display: none;">
-              <img style="height: 30px;"
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+                    <label for="">IP</label>
+                    <input id="in_ip" name="n_ip" placeholder="Apenas Números" type="text">
+    
+                    <button type="submit">Cadastrar</button>
+                    <i>Voltar ao <a href="./dashboard.html" style="font-weight: bold;">inicío</a></i>
+                </form>
+                <div id="div_aguardar" style="display: none;">
+                  <img style="height: 30px;"
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+                </div>
             </div>
         </div>
-    </div>
     </body>
     </html>
     </body>

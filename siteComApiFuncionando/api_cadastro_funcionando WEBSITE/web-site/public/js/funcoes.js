@@ -6,6 +6,10 @@ let nome_cliente;
 let login_usuario;
 let nome_usuario;
 
+function limparFormulario() {
+    document.getElementsByTagName("cadastro").reset();
+  }
+  
 function redirecionar_login() {
     window.location.href = 'login.html';
 }

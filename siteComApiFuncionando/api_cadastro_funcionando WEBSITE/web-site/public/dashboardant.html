@@ -11,10 +11,11 @@
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="./js/funcoes.js"></script>
     
     <title>Dashboard QUATRO</title> 
 </head>
-<body>
+<body onload="verificar_autenticacao()">
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -23,7 +24,7 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">QUATRO</span>
+                    <span class="name" onclick="finalizar_sessao()">QUATRO</span>
             
                 </div>
             </div>
@@ -41,14 +42,14 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="./index.html">
+                        <a href="./dashboard.html">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Início</span>
                         </a>
                     </li>
 
                         <li class="nav-link">
-                        <a href="#">
+                        <a href="#" onclick="validarClienteOuFunc()">
                             <i class='bx bx-bell icon'></i>
                             <span class="text nav-text">Minhas empresas</span>
                         </a>
@@ -66,7 +67,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="./index.html">
+                    <a onclick="finalizar_sessao()" href="./index.html">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Sair</span>
                     </a>
@@ -95,18 +96,16 @@
             <div class="adjust">
          <div class="numeros">
                <div class="container">
-                 <div class="dados">
-                   <h2 style="color: white;">Pico Semanal</h2>
-                 </div>
+                 
                  <div class="especifico">
                  <div class="complement">
-                   <h3 style="color: white;">Pico hoje</h3>
-                   <h2 style="color: white;">95%</h2>
+                   <h3 style="color: white;">Máquina:</h3>
+                   <h4 style="color: white;">Servidor 1</h4>
                  </div>
             
                  <div class="complement">
-                   <h3 style="color: white;">Estado</h3>
-                   <h2 style="color: white;">Estável</h2>
+                   <h3 style="color: white;">Localização</h3>
+                   <h4 style="color: white;">Brasil</h4>
                  </div>
                </div>
                </div>
@@ -119,8 +118,8 @@
              </div> 
              <div class="alerts">
                <div class="aviso">
-                 <h3 style="margin: 0;">Possível pico hoje</h3>
-                 <h2  style="margin: 4%;">20:00</h2>
+                 <h3 style="margin: 0;">Temperatura</h3>
+                 <h2  style="margin: 4%;">40º</h2>
                </div>
                <div class="aviso">
                  <h3 style="margin: 0;">Velocidade média</h3>
@@ -143,21 +142,14 @@
          <div class="options">
            <h1 style="color: white;">Opções</h1>
            <div class="card">
-             <h2>Semanal</h1>
+             <h2>Alertas</h1>
              <img src="./css/imgs/icons/semanal.png" alt="">
            </div>
            <div class="card">
-             <h2>Mensal</h1>
+             <h2>Relatórios</h1>
              <img src="./css/imgs/icons/mensal.png" alt="">
            </div>
-           <div class="card">
-             <h2>Anual</h1>
-             <img src="./css/imgs/icons/anual.png" alt="">
-           </div>
-           <div class="card">
-             <h2>Tempo real</h1>
-             <img src="./css/imgs/icons/real_time.png" alt="">
-           </div>
+          
          
          </div>
              </div>
@@ -197,3 +189,4 @@ modeSwitch.addEventListener("click" , () =>{
 </body>
 </html>
 <script src="./dash.js"></script>
+

@@ -21,7 +21,14 @@ body{
     margin: 0;
     padding: 0;
     font-family: Poppins;
-    color: black;
+    color: white;
+}
+
+.dark_mode:root{
+    --pink-main: #FABB28;
+    --purple-dark: #211E1F;
+    --purple-light: #0C0C0C;
+    --font-color: black;
 }
 
 @font-face {
@@ -33,28 +40,9 @@ body{
     background-color: var(--pink-main);
     width: 8px;
 }
-.container2{
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.text{
-    margin-top: 5%;
-    background-color: white;
-    border-bottom: 2px solid rgba(194, 194, 194, 0.466);
-    width: 40%;
-    border-radius: 5px 5px 0px 0px;
-    box-sizing: border-box;
-    padding-left: 3%;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37)
-}
+
 .main{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 90vh;
@@ -68,52 +56,57 @@ select{
 option{
     color: #0C0C0C;
 }
-form {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
-    height: 50vh;
-    padding-left: 3%;
-    padding-right: 3%;
-    box-sizing: border-box;
+.container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+}
+
+form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    height: 80%;
     width: 40%;
-    align-items: center;
-    border-radius: 0px 0px 5px 5px;
-    background-color: white;
 }
-.row{
-    display: flex; 
-    width: 100%;
-    justify-content: space-around; 
+input{
+    width: 60%;
+    padding: 2%;
+    background: transparent;
+    border: 1px solid white;
+    outline: none;
+    border-radius: 5px;
+}
+input::placeholder{
+    color: white;
+    font-style: italic;
+}
+span{
+    color: var(--pink-main);
+}
+ #passWordConfirm{
+    margin-right: 36%;
 }
 
-input, select{
-    box-sizing: border-box;
-    padding: 1%;
-    height: 40px;
-    width: 48%;
-    border-radius: 3px;
-    border: 1px solid var(--pink-main);
-    outline: none;
-    background-color: white;
-    padding: 2%;
+label{
+    margin-right: 53%;
 }
-#in_senha, #in_senha_confirm{
-    width: 98%;
-}
-.input-row-func{
-    width: 98%;
-}
-button {
+button{
     cursor: pointer;
     width: 65%;
     border: none;
-    font-size: 12px;
+    font-size: 1.2vw;
     padding: 2%;
     border-radius: 5px;
     background-color: var(--pink-main);
+}
+i{
+    font-size: 0.8vw;
+   
 }
 
 input::-webkit-outer-spin-button,
@@ -125,6 +118,210 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
   }
-i{
-    color: black;
-}
+
+  @media (max-width: 600px){
+    body{
+        background-color: #A45EE3;
+
+    }
+    .main{
+        display: flex;
+        align-items: center;
+        height: 80vh;
+    }
+    h1{
+        margin-top: 20%;
+    }
+    
+    .container{
+        
+        display: flex;
+        align-items: center;
+        height: 20%;
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 60%;
+        width: 86%;
+        margin-bottom: 5%;
+        
+    }
+    
+    span{
+        color: var(--pink-main);
+    }
+    input{
+        width: 70%;
+        padding: 2%;
+        background: transparent;
+        border: 1px solid white;
+        outline: none;
+        border-radius: 5px;
+    }
+    input::placeholder{
+        color: white;
+        font-style: italic;
+    }
+     #passWordConfirm{
+        margin-left: 10%;
+    }
+    
+    label{
+        margin-left: 4%;
+    }
+    button{
+        cursor: pointer;
+        width: 65%;
+        font-weight: bold;
+        font-size: 15px;
+        border: none;
+        padding: 2%;
+        border-radius: 5px;
+        background-color: var(--pink-main);
+    }
+    i{
+        font-size: 13px;
+       
+    }
+  }
+  @media (max-width: 800px){
+    body{
+        background-color: #A45EE3;
+
+    }
+    .main{
+        display: flex;
+        align-items: center;
+        height: 80vh;
+    }
+    h1{
+        margin-top: 20%;
+    }
+    
+    .container{
+        display: flex;
+        align-items: center;
+        height: 20%;
+        flex-direction: column;
+        width: 80%;
+    }
+    
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 60%;
+        width: 80%;
+        margin-bottom: 5%;
+      
+    }
+    
+    span{
+        color: var(--pink-main);
+    }
+    input{
+        width: 60%;
+        padding: 2%;
+        background: transparent;
+        border: 1px solid white;
+        outline: none;
+        border-radius: 5px;
+    }
+    input::placeholder{
+        color: white;
+        font-style: italic;
+    }
+     #passWordConfirm{
+        margin-right: 30%;
+    }
+    
+    label{
+        margin-right: 60%;
+    }
+    button{
+        cursor: pointer;
+        width: 65%;
+        font-weight: bold;
+        font-size: 15px;
+        border: none;
+        padding: 2%;
+        border-radius: 5px;
+        background-color: var(--pink-main);
+    }
+    i{
+        font-size: 13px;
+       
+    }
+  }
+  @media (max-width: 1000px){
+    body{
+        background-color: #A45EE3;
+
+    }
+    .main{
+        display: flex;
+        align-items: center;
+        height: 80vh;
+    }
+    h1{
+        margin-top: 4%;
+    }
+    
+    .container{
+        display: flex;
+        align-items: center;
+        height: 20%;
+        flex-direction: column;
+        width: 80%;
+    }
+    
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 90%;
+        width: 80%;
+    }
+    
+    span{
+        color: var(--pink-main);
+    }
+    input{
+        width: 60%;
+        padding: 2%;
+        background: transparent;
+        border: 1px solid white;
+        outline: none;
+        border-radius: 5px;
+    }
+    input::placeholder{
+        color: white;
+        font-style: italic;
+    }
+     #passWordConfirm{
+        margin-right: 45%;
+    }
+    
+    label{
+        margin-right: 58%;
+    }
+    button{
+        cursor: pointer;
+        width: 65%;
+        font-weight: bold;
+        font-size: 15px;
+        border: none;
+        padding: 2%;
+        border-radius: 5px;
+        background-color: var(--pink-main);
+    }
+    i{
+        font-size: 13px;
+       
+    }
+  }

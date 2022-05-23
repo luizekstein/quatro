@@ -16,20 +16,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="./js/funcoes.js"></script>
 
     <title>Dashboard QUATRO</title>
 </head>
-
-<body>
-
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">QUATRO</span>
+    <body onload="verificar_autenticacao()">
+        <nav class="sidebar close">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <!--<img src="logo.png" alt="">-->
+                    </span>
+    
+                    <div class="text logo-text">
+                        <span class="name" onclick="finalizar_sessao()">QUATRO</span>
 
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="./emprises.html">
+                        <a href="#" onclick="validarClienteOuFunc()">
                             <i class='bx bx-bell icon'></i>
                             <span class="text nav-text">Minhas empresas</span>
                         </a>
@@ -66,18 +66,13 @@
                             <span class="text nav-text">Analytics</span>
                         </a>
                     </li>
-                    <li class="nav-link">
-                      <a href="./employes.html">
-                          <i class='bx bxs-user-pin icon'></i>
-                          <span class="text nav-text">Adicionar func.</span>
-                      </a>
-                  </li>
+
                 </ul>
             </div>
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="./index.html">
+                    <a onclick="finalizar_sessao()" href="./index.html">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Sair</span>
                     </a>
@@ -130,7 +125,7 @@
                     class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 dark:text-white ">
                     Empresas parceiras</p>
                 <div>
-                    <a href="./cademprise.html"
+                    <a href="./cadastroServidor.html"
                         class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
                         <p class="text-sm font-medium leading-none text-white">Adicionar Empresa</p>
                     </a>
