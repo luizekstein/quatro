@@ -35,7 +35,8 @@ public class Measurement extends TimerTask {
 
     @Override
             public void run() {
-                Logs log = new Logs(dtf.format(now), looca.getProcessador().getUso(), looca.getMemoria().getEmUso());
+                
+                
                 try {
                     insertion.cpuMeasurementInsertion(Math.round(looca.getProcessador().getUso()), temperatura.getTemperatura(), dtf.format(now), 1);
                     hardware.setProcessorUsage( looca.getProcessador().getUso());
@@ -45,9 +46,9 @@ public class Measurement extends TimerTask {
                         insertion.diskMeasurementInsertion((fileStore.getTotalSpace() - fileStore.getFreeSpace()), dtf.format(now), fileStore.getUUID());
                         hardware.setDiskUsage(fileStore.getTotalSpace() - fileStore.getFreeSpace());
                         DiskUsage diskUsage = new DiskUsage(fileStore.getUUID(), fileStore.getTotalSpace() - fileStore.getFreeSpace());
-                        log.addDiskUsage(diskUsage);
+                        
                     }
-                    System.out.println(log);
+                    
                 } catch (Exception e) {
                     System.out.println(e);
                 }
