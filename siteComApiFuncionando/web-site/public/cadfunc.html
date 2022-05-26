@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/nav_&_footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+  <div class="container-nav">
+    <header class="site-header">
+        <nav class="site-navigation">
+            <div class="site-identity">
+                <a href="./index.html"> <img src="./css/images/logo/logo-quatro-write-white.svg" alt=""></a>
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./sobrenos.html">Sobre nós</a></li>
+                <li><a href="./plans.html">Planos</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>   
+    <div class="main">
+        <div class="container">
+            <h1>Cadastrar Funcionário</h1>
+            <h4>Adicione Funcionário responsável pelo monitoramento</h4>
+            <form action="#" name="cadastro" id="form_cadastro" onSubmit="cadastrar()">
+                <label for="in_nome">Nome</label>
+                <input id="in_nome" name="n_f_nome" placeholder="Nome do funcionário" type="text">
+
+                <label for="in_email">Email</label>
+                <input id="in_email" name="n_f_email" placeholder="Nivel de persmissão do funcionário" type="text">
+
+                <label id="in_senha">Senha</label>
+                <input id="in_senha" name="n_f_senha" placeholder="*****" type="text">
+
+                <label id="in_senha_confirm" for="in_senha_confirm"> Confirmar Senha</label>
+                <input id="in_senha_confirm" placeholder="*****" type="text">
+
+                <button type="submit">Adicionar</button>
+                <i><a href="./emprises.html" style="font-weight: bold;">Voltar</a> para as empresas</i>
+            </form>
+            <div id="div_aguardar" style="display: none;">
+              <img style="height: 30px;"
+                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif" id="loading-gif">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="nav.js"></script>
+<script>
+ 
+    function aguardar() {
+      var divAguardar = document.getElementById("div_aguardar");
+      divAguardar.style.display = "block";
+  }
+  
+  function finalizarAguardar() {
+    aguardar();
+    var divAguardar = document.getElementById("div_aguardar");
+      divAguardar.style.display = "none";
+  }
+
+  // Pegando o ID do cliente para inserir nos usuarios
+  var idClient = sessionStorage.cliente_id;
+  
+  console.log("Id do Cliente:" + idClient);
+
+  window.onload = pegar(idClient);
+
+  window.onload = listar();
+
+  function pegar(idClient){
+    fetch(`/usuarios/fk/${idClient}`, { cache: 'no-store' }).then(function (response) {
+
+    });
+  }
+    function cadastrar() {
+      aguardar();
+  
+      var formulario = new URLSearchParams(new FormData(form_cadastro));
+      fetch("/usuarios/cadastrar", {
+          method: "POST",
+          body: formulario
+      }).then(function (response) {
+          if (response.ok) {
+            console.log("Funcionário cadastrado com sucesso!")
+            window.location.href = 'emprises.html';
+          } else {
+  
+              console.log('Erro de cadastro!');
+              response.text().then(function (resposta) {
+                  div_erro.innerHTML = resposta;
+              });
+          }
+      });
+  
+      return false;
+    }
+  </script>

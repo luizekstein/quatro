@@ -1,78 +1,74 @@
 package com.mycompany.quatro.log;
 
+import com.github.britooo.looca.api.core.Looca;
+import com.mycompany.quatro.login.User;
 import com.mycompany.quatro.measurement.DiskUsage;
+import com.mycompany.quatro.measurement.HardwareData;
+import com.mycompany.quatro.measurement.Measurement;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
-public class Logs {
-    private Integer id;
-    private String dhGenerate;
-    private Double processorUsage;
-    private Long diskUsage;
-    private Long ramUsage;
+public class Logs extends Measurement{
+    public static void main(String[] args) {
+        
+        
+        User user = new User();
+        Looca medidas = new Looca();
+        Integer alertaRam = 6;
+        Integer alertaCpu = 50;
+        Integer alertaDisco= 0;
+        
+        
+        
+        
+       
+        
+        Logger logger = Logger.getLogger("MyLog");
+        FileHandler fileHandler;
+        try {
+            fileHandler = new FileHandler("src/main/resources/MyLogFile.txt");
+            logger.addHandler(fileHandler);
+            SimpleFormatter simpleFormatter = new SimpleFormatter();
+            fileHandler.setFormatter(simpleFormatter);
+            if (user.getEmail() != user.getEmail() || user.getPassword() != user.getPassword()) {
+                logger.info("E-mail ou senha incorretos");
+            } else {
+                 logger.info("Login Realizado com Sucesso");
+            }
+            
+            
+            
 
-    private List<DiskUsage> diskUsageList = new ArrayList<>();
+        } catch (SecurityException e) {
+            logger.info("Exception:" + e.getMessage());
+            e.printStackTrace();
+        } catch (IOException e) {
+            logger.info("IO Exception:" + e.getMessage());
+            e.printStackTrace();
+            
+            // memotia
+        } if (medidas.getMemoria().getEmUso() <= alertaRam) {
+            logger.info("Alerta: Memoria esta ok");     
+        } else {
+            logger.info("Alerta: Memoria esta no limite");  
+        } 
+           // cpu
+        if (medidas.getProcessador().getUso() <= alertaCpu) {
+            logger.info("Alerta: Processador esta ok ");
+        }else{
+            logger.info("Alerta: Processador esta no limite");
+        }
+           // disco...
+        if (medidas.getGrupoDeDiscos().getQuantidadeDeDiscos() <= alertaDisco) {
+            logger.info("Alerta: disco esta ok");
+        } else{
+            logger.info("Alerta: Disco esta no limite");
+        }
+    
+        }
+        }
+    
 
-    public Logs(String dhGenerate, Double processorUsage, Long ramUsage) {
-        this.id = 0;
-        this.dhGenerate = dhGenerate;
-        this.processorUsage = processorUsage;
-        this.ramUsage = ramUsage;
-    }
-
-    public void addDiskUsage(DiskUsage diskUsage) {
-        this.diskUsageList.add(diskUsage);
-    }
-
-    public List<DiskUsage> getDiskUsageList() {
-        return this.diskUsageList;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getDhGenerate() {
-        return dhGenerate;
-    }
-
-    public void setDhGenerate(String dhGenerate) {
-        this.dhGenerate = dhGenerate;
-    }
-
-    public Double getProcessorUsage() {
-        return processorUsage;
-    }
-
-    public void setProcessorUsage(Double processorUsage) {
-        this.processorUsage = processorUsage;
-    }
-
-    public Long getDiskUsage() {
-        return diskUsage;
-    }
-
-    public void setDiskUsage(Long diskUsage) {
-        this.diskUsage = diskUsage;
-    }
-
-    public Long getRamUsage() {
-        return ramUsage;
-    }
-
-    public void setRamUsage(Long ramUsage) {
-        this.ramUsage = ramUsage;
-    }
-
-    @Override public String toString() {
-        return String.format(
-                "[ID: %d, DATA: %s, USO DO PROCESSADOR: %.2f, USO DO DISCO: %s, USO DA MEMÓRIA RAM: %d]",
-                this.id+=1, this.dhGenerate, this.processorUsage, this.diskUsageList, this.ramUsage
-        );
-    }
-}

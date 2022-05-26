@@ -48,9 +48,9 @@ public class Measurement extends TimerTask {
                         insertion.diskMeasurementInsertion((fileStore.getTotalSpace() - fileStore.getFreeSpace()), dtf.format(now), fileStore.getUUID());
                         hardware.setDiskUsage(fileStore.getTotalSpace() - fileStore.getFreeSpace());
                         DiskUsage diskUsage = new DiskUsage(fileStore.getUUID(), fileStore.getTotalSpace() - fileStore.getFreeSpace());
-                        log.addDiskUsage(diskUsage);
+                        
                     }
-                    System.out.println(log);
+                    
                 } catch (Exception e) {
                     System.out.println(e);
                 }

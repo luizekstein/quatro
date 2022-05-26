@@ -443,7 +443,7 @@ public class DashboardHome extends javax.swing.JFrame {
     private void txtExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtExitMouseClicked
 
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja fechar?", "Atenção", JOptionPane.YES_OPTION);
-        if (opcao == JOptionPane.YES_OPTION) {
+        if (opcao == JOptionPane.YES_OPTION){
             System.exit(0);
         }
 
