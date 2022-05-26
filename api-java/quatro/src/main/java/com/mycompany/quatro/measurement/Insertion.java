@@ -13,7 +13,7 @@ public class Insertion {
                 "INSERT INTO " +
                         "dbo_measurement(measurement_usage, measurement_date, fk_component, usage_unit) " +
                     "VALUES" +
-                        "(?, ?, (select id_component from [dbo].[component] where UUID = '" + uuid + "'), 'B')", usage, date);
+                        "(?, ?, 3, 'B')", usage, date);
 
         mssql.getMssql().update(
                 "INSERT INTO "

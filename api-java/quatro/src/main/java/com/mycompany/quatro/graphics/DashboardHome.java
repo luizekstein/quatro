@@ -1,8 +1,6 @@
 package com.mycompany.quatro.graphics;
 
-import com.mycompany.quatro.measurement.HardwareData;
 import com.mycompany.quatro.measurement.Measurement;
-import org.springframework.cglib.core.MethodWrapper;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

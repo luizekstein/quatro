@@ -10,9 +10,9 @@ public class ConnectionMysql {
     public ConnectionMysql() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/meubanco");
-        dataSource.setUsername("meulogin");
-        dataSource.setPassword("minhasenha");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/4four");
+        dataSource.setUsername("root");
+        dataSource.setPassword("urubu100");
 
         mysql = new JdbcTemplate(dataSource);
     }
