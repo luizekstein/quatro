@@ -37,7 +37,6 @@ public class Measurement extends TimerTask {
             public void run() {
                 this.now = LocalDateTime.now();
                 try {
-                    Logs log = new Logs(dtf.format(now), looca.getProcessador().getUso(), looca.getMemoria().getEmUso());
                     insertion.cpuMeasurementInsertion(looca.getProcessador().getUso(), temperatura.getTemperatura(), dtf.format(now), 1);
                     hardware.setProcessorUsage(looca.getProcessador().getUso());
                     insertion.memoryMeasurementInsertion(looca.getMemoria().getEmUso(), dtf.format(now), 2);
