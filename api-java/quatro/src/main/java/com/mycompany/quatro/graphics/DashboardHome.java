@@ -550,8 +550,11 @@ public class DashboardHome extends javax.swing.JFrame {
            @Override
            public void run() {
                 measurement.run();
+               labelRam.setText(measurement.getHardware().getRamUsage());
+               txtCpu.setText(measurement.getHardware().getProcessorUsage());
+               txtHd.setText(measurement.getHardware().getDiskUsage());
            }
-       }, 0, 5000);
+       }, 0, 60000);
     }//GEN-LAST:event_btnPlayActionPerformed
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) throws InterruptedException {//GEN-FIRST:event_btnStopActionPerformed
