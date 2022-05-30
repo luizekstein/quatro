@@ -8,6 +8,8 @@ import oshi.SystemInfo;
 import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
+
+import java.net.InetAddress;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -33,18 +35,23 @@ public class Measurement extends TimerTask {
     Insertion insertion = new Insertion();
 
     JSONObject json = new JSONObject();
+
+    String hostName;
+
     @Override
             public void run() {
                 this.now = LocalDateTime.now();
                 try {
-                    insertion.cpuMeasurementInsertion(looca.getProcessador().getUso(), temperatura.getTemperatura(), dtf.format(now), 1);
+                    System.out.println(temperatura.getTemperatura());
+                    System.out.println(operatingSystem);
+                    this.hostName = InetAddress.getLocalHost().getHostName();
+                    insertion.cpuMeasurementInsertion(looca.getProcessador().getUso(), temperatura.getTemperatura(), dtf.format(now), this.hostName);
                     hardware.setProcessorUsage(looca.getProcessador().getUso());
-                    insertion.memoryMeasurementInsertion(looca.getMemoria().getEmUso(), dtf.format(now), 2);
+                    insertion.memoryMeasurementInsertion(looca.getMemoria().getEmUso(), dtf.format(now), this.hostName);
                     hardware.setRamUsage(looca.getMemoria().getEmUso());
 
                     for (OSFileStore fileStore : osFileStores) {
-                        System.out.println(fileStore.getTotalSpace());
-                        insertion.diskMeasurementInsertion((fileStore.getTotalSpace() - fileStore.getFreeSpace()), dtf.format(now), fileStore.getUUID());
+                        insertion.diskMeasurementInsertion((fileStore.getTotalSpace() - fileStore.getFreeSpace()), dtf.format(now), fileStore.getUUID(), this.hostName);
                         hardware.setDiskUsage(fileStore.getTotalSpace() - fileStore.getFreeSpace());
                         DiskUsage diskUsage = new DiskUsage(fileStore.getUUID(), fileStore.getTotalSpace() - fileStore.getFreeSpace());
                         
