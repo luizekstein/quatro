@@ -11,9 +11,6 @@ public class InsertJavaCli {
             @Override
             public void run() {
                 measurement.run();
-                System.out.println("Memória RAM: " + measurement.getHardware().getRamUsage());
-                System.out.println("CPU: " + measurement.getHardware().getProcessorUsage());
-                System.out.println("Disco: " + measurement.getHardware().getDiskUsage());
             }
         }, 0, 60000);
     }

@@ -548,9 +548,9 @@ public class DashboardHome extends javax.swing.JFrame {
            @Override
            public void run() {
                 measurement.run();
-               labelRam.setText(measurement.getHardware().getRamUsage());
-               txtCpu.setText(measurement.getHardware().getProcessorUsage());
-               txtHd.setText(measurement.getHardware().getDiskUsage());
+               labelRam.setText(measurement.getHardware().getRamUsage() + "GB");
+               txtCpu.setText(measurement.getHardware().getProcessorUsage() + "%");
+               txtHd.setText(measurement.getHardware().getDiskUsage() + "GB");
            }
        }, 0, 60000);
     }//GEN-LAST:event_btnPlayActionPerformed

@@ -6,6 +6,7 @@ import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class HardwareData {
@@ -18,6 +19,8 @@ public class HardwareData {
     private Long diskUsage;
     private Long ramUsage;
 
+    private DecimalFormat decimalFormat =  new DecimalFormat("0.00");
+
     public HardwareData() {
         this.processorUsage = 0.0;
         this.ramUsage = 0L;
@@ -25,15 +28,15 @@ public class HardwareData {
     }
 
     public String getProcessorUsage() {
-       return Double.toString(this.processorUsage);
+        return decimalFormat.format(this.processorUsage);
     }
 
     public String getDiskUsage() {
-        return Long.toString(this.diskUsage);
+        return decimalFormat.format(this.diskUsage / 1024 / 1024/ 1024);
     }
 
     public String getRamUsage() {
-        return Long.toString(this.ramUsage);
+        return decimalFormat.format(this.ramUsage / 1024 / 1024/ 1024);
     }
 
     public String getOperationalSystem() {

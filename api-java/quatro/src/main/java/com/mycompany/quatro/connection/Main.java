@@ -9,8 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        new Login().setVisible(true);
-        new DashboardHome(Action.NAME).setVisible(true);
+       new Login().setVisible(true);
+//        new DashboardHome(Action.NAME).setVisible(true);
         
 
 //        login - joao_silva@gmail.com
